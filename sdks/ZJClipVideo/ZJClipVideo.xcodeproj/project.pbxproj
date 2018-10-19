@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A511665217477F800846047 /* GLProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A51165B217477F800846047 /* GLProgressLayer.m */; };
+		7A511666217477F800846047 /* VideoAudioEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A51165C217477F800846047 /* VideoAudioEdit.m */; };
+		7A511667217477F800846047 /* GLFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A511660217477F800846047 /* GLFolderManager.m */; };
+		7A511668217477F800846047 /* VideoAudioComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A511662217477F800846047 /* VideoAudioComposition.m */; };
+		7A511669217477F800846047 /* UIImage+buffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A511663217477F800846047 /* UIImage+buffer.m */; };
+		7A5116A4217479D200846047 /* GLFolderManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165A217477F800846047 /* GLFolderManager.h */; };
+		7A5116A5217479D200846047 /* UIImage+buffer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165D217477F800846047 /* UIImage+buffer.h */; };
+		7A5116A7217479D200846047 /* GLProgressLayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A511661217477F800846047 /* GLProgressLayer.h */; };
+		7A5116A9217479D200846047 /* VideoAudioEdit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A511664217477F800846047 /* VideoAudioEdit.h */; };
+		7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165F217477F800846047 /* VideoAudioComposition.h */; };
+		7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A674E4221742D3300009DC3 /* ZJClipVideo.m */; };
+		7A674E4421742D3300009DC3 /* ZJClipVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A674E4121742D3300009DC3 /* ZJClipVideo.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A674E3C21742D3300009DC3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */,
+				7A5116A4217479D200846047 /* GLFolderManager.h in CopyFiles */,
+				7A5116A5217479D200846047 /* UIImage+buffer.h in CopyFiles */,
+				7A5116A7217479D200846047 /* GLProgressLayer.h in CopyFiles */,
+				7A5116A9217479D200846047 /* VideoAudioEdit.h in CopyFiles */,
+				7A674E4421742D3300009DC3 /* ZJClipVideo.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7A51165A217477F800846047 /* GLFolderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFolderManager.h; sourceTree = "<group>"; };
+		7A51165B217477F800846047 /* GLProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgressLayer.m; sourceTree = "<group>"; };
+		7A51165C217477F800846047 /* VideoAudioEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAudioEdit.m; sourceTree = "<group>"; };
+		7A51165D217477F800846047 /* UIImage+buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+buffer.h"; sourceTree = "<group>"; };
+		7A51165E217477F800846047 /* GLVideoConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVideoConstant.h; sourceTree = "<group>"; };
+		7A51165F217477F800846047 /* VideoAudioComposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAudioComposition.h; sourceTree = "<group>"; };
+		7A511660217477F800846047 /* GLFolderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFolderManager.m; sourceTree = "<group>"; };
+		7A511661217477F800846047 /* GLProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgressLayer.h; sourceTree = "<group>"; };
+		7A511662217477F800846047 /* VideoAudioComposition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAudioComposition.m; sourceTree = "<group>"; };
+		7A511663217477F800846047 /* UIImage+buffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+buffer.m"; sourceTree = "<group>"; };
+		7A511664217477F800846047 /* VideoAudioEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAudioEdit.h; sourceTree = "<group>"; };
+		7A674E3E21742D3300009DC3 /* libZJClipVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZJClipVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A674E4121742D3300009DC3 /* ZJClipVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJClipVideo.h; sourceTree = "<group>"; };
+		7A674E4221742D3300009DC3 /* ZJClipVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJClipVideo.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A674E3B21742D3300009DC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A511659217477F800846047 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7A51165E217477F800846047 /* GLVideoConstant.h */,
+				7A51165A217477F800846047 /* GLFolderManager.h */,
+				7A511660217477F800846047 /* GLFolderManager.m */,
+				7A511664217477F800846047 /* VideoAudioEdit.h */,
+				7A51165C217477F800846047 /* VideoAudioEdit.m */,
+				7A51165D217477F800846047 /* UIImage+buffer.h */,
+				7A511663217477F800846047 /* UIImage+buffer.m */,
+				7A51165F217477F800846047 /* VideoAudioComposition.h */,
+				7A511662217477F800846047 /* VideoAudioComposition.m */,
+				7A511661217477F800846047 /* GLProgressLayer.h */,
+				7A51165B217477F800846047 /* GLProgressLayer.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7A674E3521742D3300009DC3 = {
+			isa = PBXGroup;
+			children = (
+				7A674E4021742D3300009DC3 /* ZJClipVideo */,
+				7A674E3F21742D3300009DC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A674E3F21742D3300009DC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A674E3E21742D3300009DC3 /* libZJClipVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A674E4021742D3300009DC3 /* ZJClipVideo */ = {
+			isa = PBXGroup;
+			children = (
+				7A511659217477F800846047 /* Manager */,
+				7A674E4121742D3300009DC3 /* ZJClipVideo.h */,
+				7A674E4221742D3300009DC3 /* ZJClipVideo.m */,
+			);
+			path = ZJClipVideo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A674E3D21742D3300009DC3 /* ZJClipVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A674E4721742D3300009DC3 /* Build configuration list for PBXNativeTarget "ZJClipVideo" */;
+			buildPhases = (
+				7A674E3A21742D3300009DC3 /* Sources */,
+				7A674E3B21742D3300009DC3 /* Frameworks */,
+				7A674E3C21742D3300009DC3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZJClipVideo;
+			productName = ZJClipVideo;
+			productReference = 7A674E3E21742D3300009DC3 /* libZJClipVideo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A674E3621742D3300009DC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = zsw;
+				TargetAttributes = {
+					7A674E3D21742D3300009DC3 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 7A674E3921742D3300009DC3 /* Build configuration list for PBXProject "ZJClipVideo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7A674E3521742D3300009DC3;
+			productRefGroup = 7A674E3F21742D3300009DC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A674E3D21742D3300009DC3 /* ZJClipVideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A674E3A21742D3300009DC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A511666217477F800846047 /* VideoAudioEdit.m in Sources */,
+				7A511668217477F800846047 /* VideoAudioComposition.m in Sources */,
+				7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */,
+				7A511667217477F800846047 /* GLFolderManager.m in Sources */,
+				7A511665217477F800846047 /* GLProgressLayer.m in Sources */,
+				7A511669217477F800846047 /* UIImage+buffer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A674E4521742D3300009DC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A674E4621742D3300009DC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A674E4821742D3300009DC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A674E4921742D3300009DC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A674E3921742D3300009DC3 /* Build configuration list for PBXProject "ZJClipVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A674E4521742D3300009DC3 /* Debug */,
+				7A674E4621742D3300009DC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A674E4721742D3300009DC3 /* Build configuration list for PBXNativeTarget "ZJClipVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A674E4821742D3300009DC3 /* Debug */,
+				7A674E4921742D3300009DC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A674E3621742D3300009DC3 /* Project object */;
+}

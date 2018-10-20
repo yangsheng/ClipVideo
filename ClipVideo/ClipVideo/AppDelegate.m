@@ -9,6 +9,13 @@
 #import "AppDelegate.h"
 #import "CompositionListViewController.h"
 #import "ViewController.h"
+#import <UMCommon/UMCommon.h>
+
+
+#define UMChannel @"App Store"
+#define UMAppKey @"5bcb1ea0f1f55666bb000be0"
+
+
 @interface AppDelegate ()
 
 @end
@@ -24,6 +31,8 @@
     
     [self.window makeKeyAndVisible];
     
+    
+    [UMConfigure initWithAppkey:UMAppKey channel:UMChannel];
     
     return YES;
 }

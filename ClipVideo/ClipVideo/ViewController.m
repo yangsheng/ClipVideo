@@ -90,7 +90,7 @@
         
     }];
     
-    __weak typeof(self)weakSelf = self;
+    //__weak typeof(self)weakSelf = self;
 
     
   //  url = [NSURL URLWithString:@"http://www.ytmp3.cn/down/53969.mp3"];
@@ -116,7 +116,7 @@
 //    }];
     
     
-    [self test:url];
+    [self mix:url];
     
 }
 - (void)test:(NSURL *)url{
@@ -150,8 +150,9 @@
 }
 
 - (void)mix:(NSURL *)url{
-    
-    NSURL *audioInputUrl1 = [NSURL URLWithString:@"http://www.ytmp3.cn/down/53969.mp3"];
+    //http://sc1.111ttt.cn/2018/1/03/13/396131232171.mp3
+    //http://www.ytmp3.cn/down/53969.mp3
+    NSURL *audioInputUrl1 = [NSURL URLWithString:@"http://sc1.111ttt.cn/2018/1/03/13/396131232171.mp3"];
     // 视频来源
 //    NSURL *videoInputUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"大王叫我来巡山" ofType:@"mp4"]];
     

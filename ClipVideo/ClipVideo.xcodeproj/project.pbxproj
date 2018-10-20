@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A51164121742F7F00846047 /* libZJClipVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A674E5621742DF500009DC3 /* libZJClipVideo.a */; };
+		187711A5217B1A6D0086DE5C /* libZJClipVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711A4217B1A510086DE5C /* libZJClipVideo.a */; };
+		187711A9217B57810086DE5C /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711A8217B57810086DE5C /* UMCommon.framework */; };
+		187711AB217B589E0086DE5C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711AA217B589E0086DE5C /* CoreTelephony.framework */; };
+		187711AD217B58A70086DE5C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711AC217B58A70086DE5C /* libz.tbd */; };
+		187711AF217B58BB0086DE5C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711AE217B58BA0086DE5C /* libsqlite3.tbd */; };
+		187711B1217B58C60086DE5C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711B0217B58C60086DE5C /* SystemConfiguration.framework */; };
+		187711B4217B5B110086DE5C /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711B3217B5B110086DE5C /* UMAnalytics.framework */; };
 		7A51168A2174787C00846047 /* 绵阳@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116702174787C00846047 /* 绵阳@2x.png */; };
 		7A51168B2174787C00846047 /* 老鼠@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116712174787C00846047 /* 老鼠@2x.png */; };
 		7A51168C2174787C00846047 /* 白兔@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116722174787C00846047 /* 白兔@2x.png */; };
@@ -35,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		187711A3217B1A510086DE5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1877119F217B1A510086DE5C /* ZJClipVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A674E3E21742D3300009DC3;
+			remoteInfo = ZJClipVideo;
+		};
 		7A674E1A21742C3C00009DC3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7A674DF921742C3A00009DC3 /* Project object */;
@@ -42,16 +55,16 @@
 			remoteGlobalIDString = 7A674E0021742C3A00009DC3;
 			remoteInfo = ClipVideo;
 		};
-		7A674E5521742DF500009DC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A674E5121742DF500009DC3 /* ZJClipVideo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A674E3E21742D3300009DC3;
-			remoteInfo = ZJClipVideo;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1877119F217B1A510086DE5C /* ZJClipVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZJClipVideo.xcodeproj; path = ../../../sdks/ZJClipVideo/ZJClipVideo.xcodeproj; sourceTree = "<group>"; };
+		187711A8217B57810086DE5C /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		187711AA217B589E0086DE5C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		187711AC217B58A70086DE5C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		187711AE217B58BA0086DE5C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		187711B0217B58C60086DE5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		187711B3217B5B110086DE5C /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
 		7A35ED882174B02C00646560 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7A5116702174787C00846047 /* 绵阳@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "绵阳@2x.png"; sourceTree = "<group>"; };
 		7A5116712174787C00846047 /* 老鼠@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老鼠@2x.png"; sourceTree = "<group>"; };
@@ -87,7 +100,6 @@
 		7A674E1F21742C3C00009DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A674E2E21742CD500009DC3 /* ZJClipVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJClipVideo.h; sourceTree = "<group>"; };
 		7A674E2F21742CD500009DC3 /* ZJClipVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJClipVideo.m; sourceTree = "<group>"; };
-		7A674E5121742DF500009DC3 /* ZJClipVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZJClipVideo.xcodeproj; path = ../../../sdks/ZJClipVideo/ZJClipVideo.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +107,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A51164121742F7F00846047 /* libZJClipVideo.a in Frameworks */,
+				187711B1217B58C60086DE5C /* SystemConfiguration.framework in Frameworks */,
+				187711AF217B58BB0086DE5C /* libsqlite3.tbd in Frameworks */,
+				187711AD217B58A70086DE5C /* libz.tbd in Frameworks */,
+				187711B4217B5B110086DE5C /* UMAnalytics.framework in Frameworks */,
+				187711AB217B589E0086DE5C /* CoreTelephony.framework in Frameworks */,
+				187711A9217B57810086DE5C /* UMCommon.framework in Frameworks */,
+				187711A5217B1A6D0086DE5C /* libZJClipVideo.a in Frameworks */,
 				7A5116AC21747C9700846047 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +128,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1877119E217B1A410086DE5C /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				187711B2217B5B110086DE5C /* analytics_ios_5.5.1 */,
+				187711A6217B57810086DE5C /* common_ios_1.5.2 */,
+				1877119F217B1A510086DE5C /* ZJClipVideo.xcodeproj */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		187711A0217B1A510086DE5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				187711A4217B1A510086DE5C /* libZJClipVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		187711A6217B57810086DE5C /* common_ios_1.5.2 */ = {
+			isa = PBXGroup;
+			children = (
+				187711A7217B57810086DE5C /* normal */,
+			);
+			path = common_ios_1.5.2;
+			sourceTree = "<group>";
+		};
+		187711A7217B57810086DE5C /* normal */ = {
+			isa = PBXGroup;
+			children = (
+				187711A8217B57810086DE5C /* UMCommon.framework */,
+			);
+			path = normal;
+			sourceTree = "<group>";
+		};
+		187711B2217B5B110086DE5C /* analytics_ios_5.5.1 */ = {
+			isa = PBXGroup;
+			children = (
+				187711B3217B5B110086DE5C /* UMAnalytics.framework */,
+			);
+			path = analytics_ios_5.5.1;
+			sourceTree = "<group>";
+		};
 		7A51166B2174787C00846047 /* resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +223,8 @@
 		7A674E0321742C3A00009DC3 /* ClipVideo */ = {
 			isa = PBXGroup;
 			children = (
+				1877119E217B1A410086DE5C /* libs */,
 				7A51166B2174787C00846047 /* resource */,
-				7A674E4A21742D9A00009DC3 /* libs */,
 				7A674E0421742C3A00009DC3 /* AppDelegate.h */,
 				7A674E0521742C3A00009DC3 /* AppDelegate.m */,
 				7A674E0721742C3A00009DC3 /* ViewController.h */,
@@ -198,25 +258,13 @@
 			path = ZJClipVideo;
 			sourceTree = "<group>";
 		};
-		7A674E4A21742D9A00009DC3 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				7A674E5121742DF500009DC3 /* ZJClipVideo.xcodeproj */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		7A674E5221742DF500009DC3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7A674E5621742DF500009DC3 /* libZJClipVideo.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		7A674E5721742E5900009DC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				187711B0217B58C60086DE5C /* SystemConfiguration.framework */,
+				187711AE217B58BA0086DE5C /* libsqlite3.tbd */,
+				187711AC217B58A70086DE5C /* libz.tbd */,
+				187711AA217B589E0086DE5C /* CoreTelephony.framework */,
 				7A35ED882174B02C00646560 /* CoreVideo.framework */,
 				7A5116AD217486B100846047 /* libc++abi.tbd */,
 				7A5116AB21747C9600846047 /* AVFoundation.framework */,
@@ -293,8 +341,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 7A674E5221742DF500009DC3 /* Products */;
-					ProjectRef = 7A674E5121742DF500009DC3 /* ZJClipVideo.xcodeproj */;
+					ProductGroup = 187711A0217B1A510086DE5C /* Products */;
+					ProjectRef = 1877119F217B1A510086DE5C /* ZJClipVideo.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -306,11 +354,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		7A674E5621742DF500009DC3 /* libZJClipVideo.a */ = {
+		187711A4217B1A510086DE5C /* libZJClipVideo.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libZJClipVideo.a;
-			remoteRef = 7A674E5521742DF500009DC3 /* PBXContainerItemProxy */;
+			remoteRef = 187711A3217B1A510086DE5C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -516,8 +564,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FFNFZE3QD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ClipVideo/libs/common_ios_1.5.2/normal",
+					"$(PROJECT_DIR)/ClipVideo/libs/analytics_ios_5.5.1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo\"",
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Manager\"",
@@ -531,6 +585,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -539,8 +594,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FFNFZE3QD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ClipVideo/libs/common_ios_1.5.2/normal",
+					"$(PROJECT_DIR)/ClipVideo/libs/analytics_ios_5.5.1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo\"",
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Manager\"",
@@ -554,6 +615,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -12,13 +12,89 @@
 #import "GLProgressLayer.h"
 #import "VideoAudioEdit.h"
 #import <AVFoundation/AVFoundation.h>
+#import "HXPhotoPicker.h"
+
 
 @interface ViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic,strong) GLProgressLayer *progressLayer;
+
+@property (strong, nonatomic) HXPhotoManager *manager;
+
 @end
 
 @implementation ViewController
 
+- (HXPhotoManager *)manager
+{
+    if (!_manager) {
+        _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypeVideo];
+        _manager.configuration.videoMaxNum = 5;
+        _manager.configuration.deleteTemporaryPhoto = NO;
+        _manager.configuration.lookLivePhoto = YES;
+        _manager.configuration.saveSystemAblum = YES;
+        //        _manager.configuration.supportRotation = NO;
+        //        _manager.configuration.cameraCellShowPreview = NO;
+        //        _manager.configuration.themeColor = [UIColor redColor];
+        _manager.configuration.navigationBar = ^(UINavigationBar *navigationBar) {
+            //            [navigationBar setBackgroundImage:[UIImage imageNamed:@"APPCityPlayer_bannerGame"] forBarMetrics:UIBarMetricsDefault];
+            //            navigationBar.barTintColor = [UIColor redColor];
+        };
+        //        _manager.configuration.sectionHeaderTranslucent = NO;
+        //        _manager.configuration.navBarBackgroudColor = [UIColor redColor];
+        //        _manager.configuration.sectionHeaderSuspensionBgColor = [UIColor redColor];
+        //        _manager.configuration.sectionHeaderSuspensionTitleColor = [UIColor whiteColor];
+        //        _manager.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+        //        _manager.configuration.selectedTitleColor = [UIColor redColor];
+        __weak typeof(self) weakSelf = self;
+        _manager.configuration.photoListBottomView = ^(HXDatePhotoBottomView *bottomView) {
+//            bottomView.bgView.barTintColor = weakSelf.bottomViewBgColor;
+        };
+        _manager.configuration.previewBottomView = ^(HXDatePhotoPreviewBottomView *bottomView) {
+//            bottomView.bgView.barTintColor = weakSelf.bottomViewBgColor;
+        };
+        _manager.configuration.albumListCollectionView = ^(UICollectionView *collectionView) {
+            //            NSSLog(@"albumList:%@",collectionView);
+        };
+        _manager.configuration.photoListCollectionView = ^(UICollectionView *collectionView) {
+            //            NSSLog(@"photoList:%@",collectionView);
+        };
+        _manager.configuration.previewCollectionView = ^(UICollectionView *collectionView) {
+            //            NSSLog(@"preview:%@",collectionView);
+        };
+        //        _manager.configuration.movableCropBox = YES;
+        //        _manager.configuration.movableCropBoxEditSize = YES;
+        //        _manager.configuration.movableCropBoxCustomRatio = CGPointMake(1, 1);
+        
+        // 使用自动的相机  这里拿系统相机做示例
+        _manager.configuration.shouldUseCamera = ^(UIViewController *viewController, HXPhotoConfigurationCameraType cameraType, HXPhotoManager *manager) {
+            
+            // 这里拿使用系统相机做例子
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.delegate = (id)weakSelf;
+            imagePickerController.allowsEditing = NO;
+            NSString *requiredMediaTypeImage = ( NSString *)kUTTypeImage;
+            NSString *requiredMediaTypeMovie = ( NSString *)kUTTypeMovie;
+            NSArray *arrMediaTypes;
+            if (cameraType == HXPhotoConfigurationCameraTypePhoto) {
+                arrMediaTypes=[NSArray arrayWithObjects:requiredMediaTypeImage,nil];
+            }else if (cameraType == HXPhotoConfigurationCameraTypeVideo) {
+                arrMediaTypes=[NSArray arrayWithObjects:requiredMediaTypeMovie,nil];
+            }else {
+                arrMediaTypes=[NSArray arrayWithObjects:requiredMediaTypeImage, requiredMediaTypeMovie,nil];
+            }
+            [imagePickerController setMediaTypes:arrMediaTypes];
+            // 设置录制视频的质量
+            [imagePickerController setVideoQuality:UIImagePickerControllerQualityTypeHigh];
+            //设置最长摄像时间
+            [imagePickerController setVideoMaximumDuration:60.f];
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePickerController.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+            imagePickerController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+            [viewController presentViewController:imagePickerController animated:YES completion:nil];
+        };
+    }
+    return _manager;
+}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -31,7 +107,17 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
  
-    [self openPhotos];
+//    [self openPhotos];
+    __weak typeof(self) weakSelf = self;
+    [self hx_presentAlbumListViewControllerWithManager:self.manager done:^(NSArray<HXPhotoModel *> *allList, NSArray<HXPhotoModel *> *photoList, NSArray<HXPhotoModel *> *videoList, BOOL original, HXAlbumListViewController *viewController) {
+//        weakSelf.total.text = [NSString stringWithFormat:@"总数量：%ld   ( 照片：%ld   视频：%ld )",allList.count, photoList.count, videoList.count];
+//        weakSelf.original.text = original ? @"YES" : @"NO";
+        NSSLog(@"all - %@",allList);
+        NSSLog(@"photo - %@",photoList);
+        NSSLog(@"video - %@",videoList);
+    } cancel:^(HXAlbumListViewController *viewController) {
+        NSSLog(@"取消了");
+    }];
 }
 
 

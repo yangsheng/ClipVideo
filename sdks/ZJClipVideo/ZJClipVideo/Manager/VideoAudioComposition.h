@@ -17,6 +17,8 @@
 @interface VideoAudioComposition : NSObject
 
 
+@property(nonatomic, copy) NSString *presetName;
+
 /**
  合成后的名字
  */

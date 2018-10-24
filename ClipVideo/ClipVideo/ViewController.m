@@ -8,17 +8,21 @@
 
 #import "ViewController.h"
 #import "ZJClipVideo.h"
-#import "VideoAudioComposition.h"
-#import "GLProgressLayer.h"
+
+
 #import "VideoAudioEdit.h"
-#import <AVFoundation/AVFoundation.h>
+
 #import "HXPhotoPicker.h"
+#import "PlayController.h"
 
+@interface ViewController ()
 
-@interface ViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-@property (nonatomic,strong) GLProgressLayer *progressLayer;
 
 @property (strong, nonatomic) HXPhotoManager *manager;
+
+@property (nonatomic,strong) GLProgressLayer *progressLayer;
+
+@property(nonatomic, strong) NSArray<HXPhotoModel *> *videoList;
 
 @end
 
@@ -99,149 +103,123 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
     
     self.title = @"剪影";
 
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
- 
-//    [self openPhotos];
+- (void)actionWithType:(ActionType )actionType{
+
     __weak typeof(self) weakSelf = self;
+    
     [self hx_presentAlbumListViewControllerWithManager:self.manager done:^(NSArray<HXPhotoModel *> *allList, NSArray<HXPhotoModel *> *photoList, NSArray<HXPhotoModel *> *videoList, BOOL original, HXAlbumListViewController *viewController) {
-//        weakSelf.total.text = [NSString stringWithFormat:@"总数量：%ld   ( 照片：%ld   视频：%ld )",allList.count, photoList.count, videoList.count];
-//        weakSelf.original.text = original ? @"YES" : @"NO";
-        NSSLog(@"all - %@",allList);
-        NSSLog(@"photo - %@",photoList);
-        NSSLog(@"video - %@",videoList);
+
+        
+        [HXPhotoTools selectListWriteToTempPath:videoList requestList:^(NSArray *imageRequestIds, NSArray *videoSessions) {
+            
+        } completion:^(NSArray<NSURL *> *allUrl, NSArray<NSURL *> *imageUrls, NSArray<NSURL *> *videoUrls) {
+            
+            NSURL * url = videoUrls[0];
+            
+            NSLog(@"videoUrl:%@",url);
+            
+            if (actionType == VideoEditingAndSynthesis) {
+                
+                [weakSelf videoEditingAndSynthesisWithUrlArray:videoUrls];
+            
+            }else if (actionType == VideoBackgroundMusic){
+                
+                [weakSelf videoBackgroundMusicWithUrl:url];
+                
+            }else if (actionType == VideoBeautification){
+                NSLog(@"未开发");
+            }else if (actionType == VideoReplay){
+                
+                [self videoReplayWithUrl:url];
+                
+            }else if (actionType == VideoSpeed){
+                
+                [self videoSpeedWithUrl:url];
+                
+            }else if (actionType == VideoRatio){
+                NSLog(@"未开发");
+            }
+
+        } error:^{
+            
+        }];
+
     } cancel:^(HXAlbumListViewController *viewController) {
         NSSLog(@"取消了");
     }];
 }
 
+- (void)videoSpeedWithUrl:(NSURL *)url{
+    
+    VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
+    
+    videoAudioManager.compositionName = @"merge11.mp4";
+    
+    [videoAudioManager compositionVideos:url scale:0.25 success:^(NSURL *fileUrl) {
+    
+    
+       PlayController *vc = [[PlayController alloc] init];
+  
+       [self.navigationController pushViewController:vc animated:YES];
+  
+       [vc playWithUrl:url];
 
-- (void)openPhotos {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    //转场动画
-    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    /* 选择所有媒体文件夹
-     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary
-     */
-    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
-    picker.allowsEditing = YES;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-- (void)playWithUrl:(NSURL *)url{
-    // 传入地址
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
-    // 播放器
-    AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
-    // 播放器layer
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 300);
-    // 视频填充模式
-    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    // 添加到imageview的layer上
-    [self.view.layer addSublayer:playerLayer];
-    // 隐藏提示框 开始播放
-    // 播放
-    [player play];
-}
-
-- (void)setImages:(NSArray *)images
-{
-    for (int i = 0; i < images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 100+i*200, 200, 200)];
-        imageView.image = images[i];
-        [self.view addSubview:imageView];
-    }
-}
-
-#pragma mark -UIImagePickerControllerDelegate
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [picker dismissViewControllerAnimated:self completion:^{
-        
     }];
 }
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
-    
-    
-    NSURL * url  = info[@"UIImagePickerControllerMediaURL"];
 
-    [picker dismissViewControllerAnimated:self completion:^{
-        
-    }];
-    
-    //__weak typeof(self)weakSelf = self;
-
-    
-  //  url = [NSURL URLWithString:@"http://www.ytmp3.cn/down/53969.mp3"];
-    
-//    VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
-//    videoAudioManager.compositionName = @"merge11.mp4";
-    
-   // [videoAudioManager compositionVideos:url scale:0.25 success:^(NSURL *fileUrl) {
-        
-//                ViewController *vc = [[ViewController alloc] init];
-//                [weakSelf.navigationController pushViewController:vc animated:YES];
-//                [vc playWithUrl:url];
-    
-   // }];
-    
-    
-//    [VideoAudioComposition assetByReversingAsset:url complition:^(NSURL *outputPath) {
-//        [weakSelf.progressLayer hiddenProgress];
-//        ViewController *vc = [[ViewController alloc] init];
-//        [weakSelf.navigationController pushViewController:vc animated:YES];
-//        [vc playWithUrl:outputPath];
-//
-//    }];
-    
-    
-    [self mix:url];
-    
-}
-- (void)test:(NSURL *)url{
-    
-    NSURL *audioInputUrl1 = [NSURL URLWithString:@"http://www.ytmp3.cn/down/53969.mp3"];
-    
-    // 视频来源
-    NSURL *videoInputUrl = url;
+- (void)videoReplayWithUrl:(NSURL *)url{
     
     self.progressLayer = [GLProgressLayer showProgress];
     
-    VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
-    videoAudioManager.compositionName = @"test_1.mp4";
-    videoAudioManager.compositionType = VideoAudioToVideo;
-    __weak typeof(self)weakSelf = self;
-    //            CMTimeMakeWithSeconds(Float64 seconds, int32_t preferredTimescale)
-    [videoAudioManager compositionVideoUrl:videoInputUrl
-                            videoTimeRange:CMTimeRangeMake(kCMTimeZero, CMTimeMake(30, 1))
-                                  audioUrl:audioInputUrl1
-                            audioTimeRange:CMTimeRangeMake(kCMTimeZero, CMTimeMake(30, 1))
-                                   success:^(NSURL *fileUrl) {
-                                       [weakSelf.progressLayer hiddenProgress];
-                                       ViewController *vc = [[ViewController alloc] init];
-                                       [weakSelf.navigationController pushViewController:vc animated:YES];
-                                       [vc playWithUrl:fileUrl];
-                                   }];
-    
-    videoAudioManager.progressBlock = ^(CGFloat progress) {
-        weakSelf.progressLayer.progress = progress;
-    };
+    [VideoAudioComposition assetByReversingAsset:url complition:^(NSURL *outputPath) {
+       
+        [self.progressLayer hiddenProgress];
+      
+        PlayController *vc = [[PlayController alloc] init];
+      
+        [self.navigationController pushViewController:vc animated:YES];
+     
+        [vc playWithUrl:outputPath];
+
+    }];
 }
 
-- (void)mix:(NSURL *)url{
+- (void)videoEditingAndSynthesisWithUrlArray:(NSArray *)urlArr{
+
+//    self.progressLayer = [GLProgressLayer showProgress];
+//
+//    VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
+//    videoAudioManager.compositionName = @"test_1.mp4";
+//    videoAudioManager.compositionType = VideoToVideo;
+//    __weak typeof(self)weakSelf = self;
+//    //            CMTimeMakeWithSeconds(Float64 seconds, int32_t preferredTimescale)
+//
+//    [videoAudioManager compositionVideos:urlArr timeRanges:nil success:^(NSURL *fileUrl) {
+//        [weakSelf.progressLayer hiddenProgress];
+    
+        PlayController *vc = [[PlayController alloc] init];
+        
+        vc.urlArray = urlArr;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+     
+//        [vc playWithUrl:fileUrl];
+        
+//    }];
+//    videoAudioManager.progressBlock = ^(CGFloat progress) {
+//        weakSelf.progressLayer.progress = progress;
+//    };
+}
+- (void)videoBackgroundMusicWithUrl:(NSURL *)url{
     //http://sc1.111ttt.cn/2018/1/03/13/396131232171.mp3
     //http://www.ytmp3.cn/down/53969.mp3
     NSURL *audioInputUrl1 = [NSURL URLWithString:@"http://sc1.111ttt.cn/2018/1/03/13/396131232171.mp3"];
-    // 视频来源
-//    NSURL *videoInputUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"大王叫我来巡山" ofType:@"mp4"]];
-    
+
     self.progressLayer = [GLProgressLayer showProgress];
     
     VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
@@ -254,7 +232,7 @@
                             audioTimeRange:CMTimeRangeMake(kCMTimeZero, CMTimeMake(30, 1))
                                    success:^(NSURL *fileUrl) {
                                        [weakSelf.progressLayer hiddenProgress];
-                                       ViewController *vc = [[ViewController alloc] init];
+                                       PlayController *vc = [[PlayController alloc] init];
                                        [weakSelf.navigationController pushViewController:vc animated:YES];
                                        [vc playWithUrl:fileUrl];
                                    }];
@@ -262,6 +240,30 @@
     videoAudioManager.progressBlock = ^(CGFloat progress) {
         weakSelf.progressLayer.progress = progress;
     };
+}
+#pragma mark - 剪辑合成
+- (IBAction)editingAndSynthesis:(UIButton *)sender {
+    [self actionWithType:VideoEditingAndSynthesis];
+}
+#pragma mark - 背景音乐
+- (IBAction)backgroundMusic:(UIButton *)sender {
+    [self actionWithType:VideoBackgroundMusic];
+}
+#pragma mark -视频美化
+- (IBAction)vdieoBeautification:(UIButton *)sender {
+    [self actionWithType:VideoBeautification];
+}
+#pragma mark -视频倒放
+- (IBAction)videoReplay:(UIButton *)sender {
+    [self actionWithType:VideoReplay];
+}
+#pragma mark - 视频速度
+- (IBAction)videoSpeed:(UIButton *)sender {
+    [self actionWithType:VideoSpeed];
+}
+#pragma mark -视频比例
+- (IBAction)videoRatio:(UIButton *)sender {
+    [self actionWithType:VideoRatio];
 }
 
 

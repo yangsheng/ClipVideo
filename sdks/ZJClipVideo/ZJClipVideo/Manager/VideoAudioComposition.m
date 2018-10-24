@@ -267,7 +267,12 @@ static NSString *const kCompositionPath = @"GLComposition";
             success:(SuccessBlcok)successBlcok
 {
     // 创建一个输出
-    AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:avComposition presetName:AVAssetExportPresetHighestQuality];
+    
+    if (_presetName == nil) {
+        _presetName = AVAssetExportPresetHighestQuality;
+    }
+    
+    AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:avComposition presetName:_presetName];
     assetExport.outputFileType = AVFileTypeQuickTimeMovie;
     // 输出地址
     assetExport.outputURL = [NSURL fileURLWithPath:storePath];

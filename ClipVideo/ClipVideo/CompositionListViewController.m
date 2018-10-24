@@ -1,7 +1,7 @@
 
 
 #import "CompositionListViewController.h"
-#import "ViewController.h"
+#import "PlayController.h"
 #import "VideoAudioComposition.h"
 #import "GLProgressLayer.h"
 #import "VideoAudioEdit.h"
@@ -74,7 +74,7 @@
                                mergeVideoTimeRange:CMTimeRangeMake(kCMTimeZero, kCMTimeZero)
                                            success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -102,7 +102,7 @@
                                mergeVideoTimeRange:CMTimeRangeMake(kCMTimeZero, kCMTimeZero)
                                            success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -132,7 +132,7 @@
                                     audioTimeRange:CMTimeRangeMake(kCMTimeZero, CMTimeMake(30, 1))
                                            success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -160,7 +160,7 @@
                                     audioTimeRange:CMTimeRangeMake(kCMTimeZero, CMTimeMake(30, 1))
                                            success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -186,7 +186,7 @@
                                       timeRanges:nil
                                          success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -211,7 +211,7 @@
                 [weakSelf.images addObject:image];
                 
 
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [vc setImages:weakSelf.images];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
 
@@ -249,7 +249,7 @@
                                           videoName:@"video_image.mov"
                                             success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -288,7 +288,7 @@
                                               audio:videoInputUrl
                                             success:^(NSURL *fileUrl) {
                 [weakSelf.progressLayer hiddenProgress];
-                ViewController *vc = [[ViewController alloc] init];
+                PlayController *vc = [[PlayController alloc] init];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
                 [vc playWithUrl:fileUrl];
             }];
@@ -307,7 +307,7 @@
             __weak typeof(self)weakSelf = self;
             [videoManager watermarkForVideo:videoInputUrl videoName:@"淡出.mov" success:^(NSURL *fileUrl){
                 [weakSelf.progressLayer hiddenProgress];
-                 ViewController *vc = [[ViewController alloc] init];
+                 PlayController *vc = [[PlayController alloc] init];
                  [weakSelf.navigationController pushViewController:vc animated:YES];
                  [vc playWithUrl:fileUrl];
              }];

@@ -19,6 +19,13 @@
 		7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165F217477F800846047 /* VideoAudioComposition.h */; };
 		7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A674E4221742D3300009DC3 /* ZJClipVideo.m */; };
 		7A674E4421742D3300009DC3 /* ZJClipVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A674E4121742D3300009DC3 /* ZJClipVideo.h */; };
+		7AF6CC4821804CC5000D90F2 /* ZJSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */; };
+		7AF6CC4921804CC5000D90F2 /* NSURL+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */; };
+		7AF6CC4A21804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */; };
+		7AF6CC4B21804D50000D90F2 /* NSURL+ZJSaveToCameraRoll.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AF6CC4421804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.h */; };
+		7AF6CC4C21804D50000D90F2 /* UIImage+ZJSaveToCameraRoll.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AF6CC4521804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.h */; };
+		7AF6CC4D21804D50000D90F2 /* ZJSaveToCameraRollOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AF6CC4621804CC5000D90F2 /* ZJSaveToCameraRollOperation.h */; };
+		7AF6CC6821806BB4000D90F2 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC6721806BB4000D90F2 /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +35,9 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				7AF6CC4B21804D50000D90F2 /* NSURL+ZJSaveToCameraRoll.h in CopyFiles */,
+				7AF6CC4C21804D50000D90F2 /* UIImage+ZJSaveToCameraRoll.h in CopyFiles */,
+				7AF6CC4D21804D50000D90F2 /* ZJSaveToCameraRollOperation.h in CopyFiles */,
 				7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */,
 				7A5116A4217479D200846047 /* GLFolderManager.h in CopyFiles */,
 				7A5116A5217479D200846047 /* UIImage+buffer.h in CopyFiles */,
@@ -54,6 +64,14 @@
 		7A674E3E21742D3300009DC3 /* libZJClipVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZJClipVideo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A674E4121742D3300009DC3 /* ZJClipVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJClipVideo.h; sourceTree = "<group>"; };
 		7A674E4221742D3300009DC3 /* ZJClipVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJClipVideo.m; sourceTree = "<group>"; };
+		7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSaveToCameraRollOperation.m; sourceTree = "<group>"; };
+		7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ZJSaveToCameraRoll.m"; sourceTree = "<group>"; };
+		7AF6CC4421804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ZJSaveToCameraRoll.h"; sourceTree = "<group>"; };
+		7AF6CC4521804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZJSaveToCameraRoll.h"; sourceTree = "<group>"; };
+		7AF6CC4621804CC5000D90F2 /* ZJSaveToCameraRollOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSaveToCameraRollOperation.h; sourceTree = "<group>"; };
+		7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZJSaveToCameraRoll.m"; sourceTree = "<group>"; };
+		7AF6CC6621806BB4000D90F2 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		7AF6CC6721806BB4000D90F2 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +122,27 @@
 		7A674E4021742D3300009DC3 /* ZJClipVideo */ = {
 			isa = PBXGroup;
 			children = (
+				7AF6CC4121804CB5000D90F2 /* Tools */,
 				7A511659217477F800846047 /* Manager */,
 				7A674E4121742D3300009DC3 /* ZJClipVideo.h */,
 				7A674E4221742D3300009DC3 /* ZJClipVideo.m */,
 			);
 			path = ZJClipVideo;
+			sourceTree = "<group>";
+		};
+		7AF6CC4121804CB5000D90F2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7AF6CC6621806BB4000D90F2 /* UIView+Frame.h */,
+				7AF6CC6721806BB4000D90F2 /* UIView+Frame.m */,
+				7AF6CC4421804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.h */,
+				7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */,
+				7AF6CC4521804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.h */,
+				7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */,
+				7AF6CC4621804CC5000D90F2 /* ZJSaveToCameraRollOperation.h */,
+				7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +205,11 @@
 				7A511668217477F800846047 /* VideoAudioComposition.m in Sources */,
 				7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */,
 				7A511667217477F800846047 /* GLFolderManager.m in Sources */,
+				7AF6CC4A21804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m in Sources */,
+				7AF6CC4921804CC5000D90F2 /* NSURL+ZJSaveToCameraRoll.m in Sources */,
 				7A511665217477F800846047 /* GLProgressLayer.m in Sources */,
+				7AF6CC4821804CC5000D90F2 /* ZJSaveToCameraRollOperation.m in Sources */,
+				7AF6CC6821806BB4000D90F2 /* UIView+Frame.m in Sources */,
 				7A511669217477F800846047 /* UIImage+buffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -283,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -306,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

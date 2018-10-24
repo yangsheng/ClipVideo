@@ -7,7 +7,6 @@
 //
 
 #import "ZJClipVideo.h"
-
 @implementation ZJClipVideo
 
 @end

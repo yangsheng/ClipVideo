@@ -8,11 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+typedef NS_ENUM(NSInteger,ActionType) {
+    VideoEditingAndSynthesis = 0,
+    VideoBackgroundMusic,
+    VideoBeautification,
+    VideoReplay,
+    VideoSpeed,
+    VideoRatio
+};
+
+
 @interface ViewController : UIViewController
 
-- (void)playWithUrl:(NSURL *)url;
 
-- (void)setImages:(NSArray *)images;
+@property (nonatomic,assign) ActionType actionType;
+
+
+
 
 @end
 

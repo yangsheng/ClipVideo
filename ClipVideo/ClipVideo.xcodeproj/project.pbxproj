@@ -95,6 +95,10 @@
 		7AB3CB05217F4406002216C2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAEE217F4406002216C2 /* UIView+WebCacheOperation.m */; };
 		7AB3CB06217F4406002216C2 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAEF217F4406002216C2 /* UIView+WebCache.m */; };
 		7AB3CB07217F4406002216C2 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAF3217F4406002216C2 /* UIButton+WebCache.m */; };
+		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
+		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
+		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
+		FCEB71B96764EBBD1FBCB63F /* Pods_ClipVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +125,7 @@
 		187711AE217B58BA0086DE5C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		187711B0217B58C60086DE5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		187711B3217B5B110086DE5C /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
+		5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.debug.xcconfig"; sourceTree = "<group>"; };
 		7A35ED882174B02C00646560 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7A5116702174787C00846047 /* 绵阳@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "绵阳@2x.png"; sourceTree = "<group>"; };
 		7A5116712174787C00846047 /* 老鼠@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老鼠@2x.png"; sourceTree = "<group>"; };
@@ -271,6 +276,13 @@
 		7AB3CAF2217F4406002216C2 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		7AB3CAF3217F4406002216C2 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		7AB3CAF4217F4406002216C2 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		7AF6CC3721801F12000D90F2 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		7AF6CC3E2180472B000D90F2 /* PlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayController.h; sourceTree = "<group>"; };
+		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
+		7AF6CC5021805240000D90F2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7AF6CC5621805FBF000D90F2 /* PlayController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayController.xib; sourceTree = "<group>"; };
+		B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +298,7 @@
 				187711AB217B589E0086DE5C /* CoreTelephony.framework in Frameworks */,
 				187711A9217B57810086DE5C /* UMCommon.framework in Frameworks */,
 				7A5116AC21747C9700846047 /* AVFoundation.framework in Frameworks */,
+				FCEB71B96764EBBD1FBCB63F /* Pods_ClipVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +348,15 @@
 			path = analytics_ios_5.5.1;
 			sourceTree = "<group>";
 		};
+		647254D7E20B0E836C5D4DFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */,
+				E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7A51166B2174787C00846047 /* resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +394,7 @@
 				7A674E1C21742C3C00009DC3 /* ClipVideoUITests */,
 				7A674E0221742C3A00009DC3 /* Products */,
 				7A674E5721742E5900009DC3 /* Frameworks */,
+				647254D7E20B0E836C5D4DFA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,11 +416,16 @@
 				7A674E0521742C3A00009DC3 /* AppDelegate.m */,
 				7A674E0721742C3A00009DC3 /* ViewController.h */,
 				7A674E0821742C3A00009DC3 /* ViewController.m */,
+				7AF6CC3721801F12000D90F2 /* ViewController.xib */,
+				7AF6CC3E2180472B000D90F2 /* PlayController.h */,
+				7AF6CC3F2180472B000D90F2 /* PlayController.m */,
+				7AF6CC5621805FBF000D90F2 /* PlayController.xib */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
 				7A5116A2217478D300846047 /* CompositionListViewController.m */,
 				7A674E0A21742C3A00009DC3 /* Main.storyboard */,
 				7A674E0D21742C3B00009DC3 /* Assets.xcassets */,
 				7A674E0F21742C3B00009DC3 /* LaunchScreen.storyboard */,
+				7AF6CC5021805240000D90F2 /* PrefixHeader.pch */,
 				7A674E1221742C3B00009DC3 /* Info.plist */,
 				7A674E1321742C3B00009DC3 /* main.m */,
 			);
@@ -423,6 +451,7 @@
 				7A35ED882174B02C00646560 /* CoreVideo.framework */,
 				7A5116AD217486B100846047 /* libc++abi.tbd */,
 				7A5116AB21747C9600846047 /* AVFoundation.framework */,
+				B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -458,13 +487,13 @@
 				7AB3CA6B217F4351002216C2 /* UIFont+HXExtension.m */,
 				7AB3CA6C217F4351002216C2 /* HXCircleProgressView.h */,
 				7AB3CA6D217F4351002216C2 /* HXDatePhotoInteractiveTransition.m */,
-				7AB3CA6E217F4351002216C2 /* HXPhotoModel.m */,
 				7AB3CA6F217F4351002216C2 /* HXAlbumListViewController.m */,
 				7AB3CA70217F4351002216C2 /* UIButton+HXExtension.h */,
 				7AB3CA71217F4351002216C2 /* HXCustomPreviewView.h */,
 				7AB3CA72217F4351002216C2 /* UIView+HXExtension.m */,
 				7AB3CA73217F4351002216C2 /* HXPhotoCustomNavigationBar.m */,
 				7AB3CA74217F4351002216C2 /* HXAlbumModel.h */,
+				7AB3CA94217F4351002216C2 /* HXPhotoTools.h */,
 				7AB3CA75217F4351002216C2 /* HXPhotoTools.m */,
 				7AB3CA76217F4351002216C2 /* HXPhotoSubViewCell.h */,
 				7AB3CA77217F4351002216C2 /* HXDatePhotoPreviewViewController.m */,
@@ -496,7 +525,6 @@
 				7AB3CA91217F4351002216C2 /* HXPhoto3DTouchViewController.h */,
 				7AB3CA92217F4351002216C2 /* HXDatePhotoPreviewViewController.h */,
 				7AB3CA93217F4351002216C2 /* HXPhotoSubViewCell.m */,
-				7AB3CA94217F4351002216C2 /* HXPhotoTools.h */,
 				7AB3CA95217F4351002216C2 /* HXAlbumModel.m */,
 				7AB3CA96217F4351002216C2 /* UIView+HXExtension.h */,
 				7AB3CA97217F4351002216C2 /* HXPhotoCustomNavigationBar.h */,
@@ -506,6 +534,7 @@
 				7AB3CA9B217F4351002216C2 /* HXCircleProgressView.m */,
 				7AB3CA9C217F4351002216C2 /* UIFont+HXExtension.h */,
 				7AB3CA9D217F4351002216C2 /* HXPhotoModel.h */,
+				7AB3CA6E217F4351002216C2 /* HXPhotoModel.m */,
 				7AB3CA9E217F4351002216C2 /* HXDatePhotoInteractiveTransition.h */,
 				7AB3CA9F217F4351002216C2 /* UIImageView+HXExtension.h */,
 				7AB3CAA0217F4351002216C2 /* HXDateVideoEditViewController.m */,
@@ -572,9 +601,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A674E2221742C3C00009DC3 /* Build configuration list for PBXNativeTarget "ClipVideo" */;
 			buildPhases = (
+				BC28B509C731739730482D7C /* [CP] Check Pods Manifest.lock */,
 				7A674DFD21742C3A00009DC3 /* Sources */,
 				7A674DFE21742C3A00009DC3 /* Frameworks */,
 				7A674DFF21742C3A00009DC3 /* Resources */,
+				D8CB4328AB8B0813AE5811AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -662,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB3CABF217F4351002216C2 /* HXWeiboPhotoPicker.bundle in Resources */,
+				7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */,
 				7A5116922174787C00846047 /* img7.jpg in Resources */,
 				7A51168F2174787C00846047 /* img5.jpg in Resources */,
 				7A5116972174787C00846047 /* img11.jpg in Resources */,
@@ -671,6 +703,7 @@
 				7A674E0E21742C3B00009DC3 /* Assets.xcassets in Resources */,
 				7A5116962174787C00846047 /* img1.jpg in Resources */,
 				7A5116902174787C00846047 /* img4.jpg in Resources */,
+				7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */,
 				7A5116932174787C00846047 /* img3.jpg in Resources */,
 				7A51168A2174787C00846047 /* 绵阳@2x.png in Resources */,
 				7A5116912174787C00846047 /* img6.jpg in Resources */,
@@ -691,6 +724,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC28B509C731739730482D7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClipVideo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8CB4328AB8B0813AE5811AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A674DFD21742C3A00009DC3 /* Sources */ = {
@@ -737,6 +819,7 @@
 				7AB3CB07217F4406002216C2 /* UIButton+WebCache.m in Sources */,
 				7AB3CAB9217F4351002216C2 /* HXDatePhotoViewController.m in Sources */,
 				7AB3CAFC217F4406002216C2 /* UIImage+MultiFormat.m in Sources */,
+				7AF6CC402180472B000D90F2 /* PlayController.m in Sources */,
 				7A674E1421742C3B00009DC3 /* main.m in Sources */,
 				7AB3CAAA217F4351002216C2 /* HXDownloadProgressView.m in Sources */,
 				7AB3CACC217F4351002216C2 /* HXDatePhotoEditViewController.m in Sources */,
@@ -912,6 +995,7 @@
 		};
 		7A674E2321742C3C00009DC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hou Di (67BQS4U6JG)";
@@ -923,9 +1007,12 @@
 					"$(PROJECT_DIR)/ClipVideo/libs/common_ios_1.5.2/normal",
 					"$(PROJECT_DIR)/ClipVideo/libs/analytics_ios_5.5.1",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ClipVideo/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo\"",
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Manager\"",
+					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Tools\"",
 				);
 				INFOPLIST_FILE = ClipVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -944,6 +1031,7 @@
 		};
 		7A674E2421742C3C00009DC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Leshi Co., Ltd";
@@ -955,9 +1043,12 @@
 					"$(PROJECT_DIR)/ClipVideo/libs/common_ios_1.5.2/normal",
 					"$(PROJECT_DIR)/ClipVideo/libs/analytics_ios_5.5.1",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ClipVideo/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo\"",
 					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Manager\"",
+					"\"$(SRCROOT)/../sdks/ZJClipVideo/ZJClipVideo/Tools\"",
 				);
 				INFOPLIST_FILE = ClipVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

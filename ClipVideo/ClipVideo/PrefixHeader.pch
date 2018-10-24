@@ -1,0 +1,39 @@
+//
+//  PrefixHeader.pch
+//  ClipVideo
+//
+//  Created by leeco on 2018/10/24.
+//  Copyright © 2018年 zsw. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "BlocksKit.h"
+#import "UIControl+BlocksKit.h"
+#import "Masonry.h"
+#import "ZJClipVideo.h"
+#import "VideoAudioComposition.h"
+#import "ZJClipVideo.h"
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define WeakObj(o) __weak typeof(o) o##Weak = o;
+//LOG日志
+//#ifdef DEBUG
+//#define NSLog(FORMAT, ...) fprintf(stdout,"\n==========================START===========================\n😄😃😄 Class:%s\n🔴❤️😃 Line:%d\n😄😃😄 TimeStampe:%s\n===========================LOG============================\n%s\n===========================END============================\n",[[[[NSString stringWithUTF8String:__FILE__] lastPathComponent]componentsSeparatedByString:@"."].firstObject UTF8String], __LINE__, __TIMESTAMP__ ,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+//#else
+//#define NSLog(format, ...)
+//#endif
+
+#define HUDNormal(msg) { ZJAlertView *alert = [[ZJAlertView alloc]init];\
+[alert showAlertWith:msg];\
+}
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+#endif /* PrefixHeader_pch */

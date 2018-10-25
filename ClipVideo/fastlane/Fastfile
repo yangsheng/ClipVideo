@@ -22,7 +22,6 @@ platform :ios do  #指定持续集成对象的平台名称
 #
 branch = options[:branch]
 
-
 #这里我们项目为了区分线上环境和测试环境，而做了两个target
 #关于target区分环境的方法，可以参考我同事的简书文章https://www.jianshu.com/p/23cc84d40423
 #下面代码通过在终端输入1或者其他数字来选择要打包的target
@@ -36,7 +35,7 @@ if scheme == "1\n"
 #打包的用途，也就是app-store, package, ad-hoc, enterprise, development这几个中的一个，这里我们项目的target1用的是公司帐号，打的是开发包
   export_method = "development"      
  else
-  schemeName = "LECVodPlayerUIDemo"
+  schemeName = "ClipVideo"
 #这里我们项目的target2用的是企业帐号，打的是企业包
   export_method = "enterprise"      
 end

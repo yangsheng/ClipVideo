@@ -1,0 +1,8 @@
+#use_frameworks!
+
+target "ClipVideo" do
+
+    pod 'Masonry'
+    pod 'BlocksKit', '~> 2.2.5'
+
+end

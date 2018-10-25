@@ -6,18 +6,12 @@
 //  Copyright © 2018年 zsw. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SuperPlayController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlayController : UIViewController
-- (void)playWithUrl:(NSURL *)url;
+@interface PlayController : SuperPlayController
 
-
-- (void)setImages:(NSArray *)images;
-
-
-@property(nonatomic, strong) NSArray * urlArray;
 
 @end
 

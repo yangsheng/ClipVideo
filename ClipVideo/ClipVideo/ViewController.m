@@ -15,7 +15,10 @@
 #import "HXPhotoPicker.h"
 #import "PlayController.h"
 
+
+
 @interface ViewController ()
+
 
 
 @property (strong, nonatomic) HXPhotoManager *manager;
@@ -27,6 +30,8 @@
 @end
 
 @implementation ViewController
+
+
 
 - (HXPhotoManager *)manager
 {
@@ -266,5 +271,10 @@
     [self actionWithType:VideoRatio];
 }
 
+- (IBAction)test:(id)sender {
+    
+   
+    
+}
 
 @end

@@ -13,6 +13,12 @@
 		187711AF217B58BB0086DE5C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711AE217B58BA0086DE5C /* libsqlite3.tbd */; };
 		187711B1217B58C60086DE5C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711B0217B58C60086DE5C /* SystemConfiguration.framework */; };
 		187711B4217B5B110086DE5C /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187711B3217B5B110086DE5C /* UMAnalytics.framework */; };
+		7A27A2AB2181710C00F90564 /* SuperPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2A92181710C00F90564 /* SuperPlayController.m */; };
+		7A27A2AC2181710C00F90564 /* SuperPlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27A2AA2181710C00F90564 /* SuperPlayController.xib */; };
+		7A27A2B0218173D500F90564 /* BeautificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2AE218173D500F90564 /* BeautificationController.m */; };
+		7A27A2B1218173D500F90564 /* BeautificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27A2AF218173D500F90564 /* BeautificationController.xib */; };
+		7A27A2B52181940F00F90564 /* ExitEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2B42181940F00F90564 /* ExitEditorView.m */; };
+		7A27A2C02181ABDB00F90564 /* SuperController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2BF2181ABDB00F90564 /* SuperController.m */; };
 		7A51168A2174787C00846047 /* 绵阳@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116702174787C00846047 /* 绵阳@2x.png */; };
 		7A51168B2174787C00846047 /* 老鼠@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116712174787C00846047 /* 老鼠@2x.png */; };
 		7A51168C2174787C00846047 /* 白兔@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116722174787C00846047 /* 白兔@2x.png */; };
@@ -98,7 +104,7 @@
 		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
 		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
 		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
-		FCEB71B96764EBBD1FBCB63F /* Pods_ClipVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */; };
+		8114F197F4A883288447BEBA /* libPods-ClipVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE9C964C1839B635B2675C3 /* libPods-ClipVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +131,17 @@
 		187711AE217B58BA0086DE5C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		187711B0217B58C60086DE5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		187711B3217B5B110086DE5C /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
-		5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.debug.xcconfig"; sourceTree = "<group>"; };
+		6EE9C964C1839B635B2675C3 /* libPods-ClipVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClipVideo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A27A2A82181710C00F90564 /* SuperPlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperPlayController.h; sourceTree = "<group>"; };
+		7A27A2A92181710C00F90564 /* SuperPlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperPlayController.m; sourceTree = "<group>"; };
+		7A27A2AA2181710C00F90564 /* SuperPlayController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuperPlayController.xib; sourceTree = "<group>"; };
+		7A27A2AD218173D500F90564 /* BeautificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautificationController.h; sourceTree = "<group>"; };
+		7A27A2AE218173D500F90564 /* BeautificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautificationController.m; sourceTree = "<group>"; };
+		7A27A2AF218173D500F90564 /* BeautificationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeautificationController.xib; sourceTree = "<group>"; };
+		7A27A2B32181940F00F90564 /* ExitEditorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExitEditorView.h; sourceTree = "<group>"; };
+		7A27A2B42181940F00F90564 /* ExitEditorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExitEditorView.m; sourceTree = "<group>"; };
+		7A27A2BD2181ABDA00F90564 /* SuperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperController.h; sourceTree = "<group>"; };
+		7A27A2BF2181ABDB00F90564 /* SuperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperController.m; sourceTree = "<group>"; };
 		7A35ED882174B02C00646560 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7A5116702174787C00846047 /* 绵阳@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "绵阳@2x.png"; sourceTree = "<group>"; };
 		7A5116712174787C00846047 /* 老鼠@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老鼠@2x.png"; sourceTree = "<group>"; };
@@ -281,8 +297,8 @@
 		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
 		7AF6CC5021805240000D90F2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7AF6CC5621805FBF000D90F2 /* PlayController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayController.xib; sourceTree = "<group>"; };
-		B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.release.xcconfig"; sourceTree = "<group>"; };
+		A07B6C019D59EC9D3014E4F4 /* Pods-ClipVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.debug.xcconfig"; sourceTree = "<group>"; };
+		CC7E0FAFEDA2324C434534B3 /* Pods-ClipVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipVideo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,7 +314,7 @@
 				187711AB217B589E0086DE5C /* CoreTelephony.framework in Frameworks */,
 				187711A9217B57810086DE5C /* UMCommon.framework in Frameworks */,
 				7A5116AC21747C9700846047 /* AVFoundation.framework in Frameworks */,
-				FCEB71B96764EBBD1FBCB63F /* Pods_ClipVideo.framework in Frameworks */,
+				8114F197F4A883288447BEBA /* libPods-ClipVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,13 +364,22 @@
 			path = analytics_ios_5.5.1;
 			sourceTree = "<group>";
 		};
-		647254D7E20B0E836C5D4DFA /* Pods */ = {
+		319410CEB8CE9806114374D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */,
-				E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */,
+				A07B6C019D59EC9D3014E4F4 /* Pods-ClipVideo.debug.xcconfig */,
+				CC7E0FAFEDA2324C434534B3 /* Pods-ClipVideo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A27A2B2218193EF00F90564 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A27A2B32181940F00F90564 /* ExitEditorView.h */,
+				7A27A2B42181940F00F90564 /* ExitEditorView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7A51166B2174787C00846047 /* resource */ = {
@@ -394,7 +419,7 @@
 				7A674E1C21742C3C00009DC3 /* ClipVideoUITests */,
 				7A674E0221742C3A00009DC3 /* Products */,
 				7A674E5721742E5900009DC3 /* Frameworks */,
-				647254D7E20B0E836C5D4DFA /* Pods */,
+				319410CEB8CE9806114374D3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,12 +439,21 @@
 				7A51166B2174787C00846047 /* resource */,
 				7A674E0421742C3A00009DC3 /* AppDelegate.h */,
 				7A674E0521742C3A00009DC3 /* AppDelegate.m */,
+				7A27A2B2218193EF00F90564 /* Views */,
 				7A674E0721742C3A00009DC3 /* ViewController.h */,
 				7A674E0821742C3A00009DC3 /* ViewController.m */,
 				7AF6CC3721801F12000D90F2 /* ViewController.xib */,
+				7A27A2BD2181ABDA00F90564 /* SuperController.h */,
+				7A27A2BF2181ABDB00F90564 /* SuperController.m */,
 				7AF6CC3E2180472B000D90F2 /* PlayController.h */,
 				7AF6CC3F2180472B000D90F2 /* PlayController.m */,
 				7AF6CC5621805FBF000D90F2 /* PlayController.xib */,
+				7A27A2AD218173D500F90564 /* BeautificationController.h */,
+				7A27A2AE218173D500F90564 /* BeautificationController.m */,
+				7A27A2AF218173D500F90564 /* BeautificationController.xib */,
+				7A27A2A82181710C00F90564 /* SuperPlayController.h */,
+				7A27A2A92181710C00F90564 /* SuperPlayController.m */,
+				7A27A2AA2181710C00F90564 /* SuperPlayController.xib */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
 				7A5116A2217478D300846047 /* CompositionListViewController.m */,
 				7A674E0A21742C3A00009DC3 /* Main.storyboard */,
@@ -451,7 +485,7 @@
 				7A35ED882174B02C00646560 /* CoreVideo.framework */,
 				7A5116AD217486B100846047 /* libc++abi.tbd */,
 				7A5116AB21747C9600846047 /* AVFoundation.framework */,
-				B5E9AA9FA7127DF6E9883E9B /* Pods_ClipVideo.framework */,
+				6EE9C964C1839B635B2675C3 /* libPods-ClipVideo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -605,7 +639,6 @@
 				7A674DFD21742C3A00009DC3 /* Sources */,
 				7A674DFE21742C3A00009DC3 /* Frameworks */,
 				7A674DFF21742C3A00009DC3 /* Resources */,
-				D8CB4328AB8B0813AE5811AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -701,6 +734,7 @@
 				7A5116952174787C00846047 /* img0.jpg in Resources */,
 				7A674E1121742C3B00009DC3 /* LaunchScreen.storyboard in Resources */,
 				7A674E0E21742C3B00009DC3 /* Assets.xcassets in Resources */,
+				7A27A2B1218173D500F90564 /* BeautificationController.xib in Resources */,
 				7A5116962174787C00846047 /* img1.jpg in Resources */,
 				7A5116902174787C00846047 /* img4.jpg in Resources */,
 				7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */,
@@ -711,6 +745,7 @@
 				7A51168E2174787C00846047 /* img8.jpg in Resources */,
 				7A51168C2174787C00846047 /* 白兔@2x.png in Resources */,
 				7A5116942174787C00846047 /* img2.jpg in Resources */,
+				7A27A2AC2181710C00F90564 /* SuperPlayController.xib in Resources */,
 				7A51168B2174787C00846047 /* 老鼠@2x.png in Resources */,
 				7A5116982174787C00846047 /* img10.jpg in Resources */,
 			);
@@ -748,30 +783,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8CB4328AB8B0813AE5811AA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -786,6 +797,7 @@
 				7AB3CB01217F4406002216C2 /* NSData+ImageContentType.m in Sources */,
 				7AB3CAAD217F4351002216C2 /* NSBundle+HXWeiboPhotoPicker.m in Sources */,
 				7AB3CAC4217F4351002216C2 /* HXDatePhotoViewTransition.m in Sources */,
+				7A27A2B52181940F00F90564 /* ExitEditorView.m in Sources */,
 				7AB3CAAB217F4351002216C2 /* HXPhoto3DTouchViewController.m in Sources */,
 				7AB3CAFD217F4406002216C2 /* SDWebImageCompat.m in Sources */,
 				7AB3CAC1217F4351002216C2 /* HXFullScreenCameraPlayView.m in Sources */,
@@ -801,6 +813,7 @@
 				7AB3CAC0217F4351002216C2 /* HXPhotoView.m in Sources */,
 				7AB3CAB2217F4351002216C2 /* HXPhotoModel.m in Sources */,
 				7AB3CAF6217F4406002216C2 /* MKAnnotationView+WebCache.m in Sources */,
+				7A27A2C02181ABDB00F90564 /* SuperController.m in Sources */,
 				7AB3CB03217F4406002216C2 /* NSImage+WebCache.m in Sources */,
 				7AB3CB02217F4406002216C2 /* UIImageView+WebCache.m in Sources */,
 				7AB3CAAF217F4351002216C2 /* UIImageView+HXExtension.m in Sources */,
@@ -824,10 +837,12 @@
 				7AB3CAAA217F4351002216C2 /* HXDownloadProgressView.m in Sources */,
 				7AB3CACC217F4351002216C2 /* HXDatePhotoEditViewController.m in Sources */,
 				7AB3CAFA217F4406002216C2 /* SDWebImageDownloader.m in Sources */,
+				7A27A2AB2181710C00F90564 /* SuperPlayController.m in Sources */,
 				7AB3CAA7217F4351002216C2 /* HXCustomCameraViewController.m in Sources */,
 				7AB3CAA9217F4351002216C2 /* HXPhotoConfiguration.m in Sources */,
 				7AB3CABC217F4351002216C2 /* HXCustomCameraController.m in Sources */,
 				7AB3CB06217F4406002216C2 /* UIView+WebCache.m in Sources */,
+				7A27A2B0218173D500F90564 /* BeautificationController.m in Sources */,
 				7AB3CAC6217F4351002216C2 /* HXAlbumModel.m in Sources */,
 				7AB3CAAE217F4351002216C2 /* HXCollectionView.m in Sources */,
 				7AB3CAC7217F4351002216C2 /* UIButton+HXExtension.m in Sources */,
@@ -995,7 +1010,7 @@
 		};
 		7A674E2321742C3C00009DC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BF61A2527984F53F97EE117 /* Pods-ClipVideo.debug.xcconfig */;
+			baseConfigurationReference = A07B6C019D59EC9D3014E4F4 /* Pods-ClipVideo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hou Di (67BQS4U6JG)";
@@ -1021,7 +1036,12 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_LetvCommon_20180528;
@@ -1031,7 +1051,7 @@
 		};
 		7A674E2421742C3C00009DC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E26AFFE67614F3FA7C77C439 /* Pods-ClipVideo.release.xcconfig */;
+			baseConfigurationReference = CC7E0FAFEDA2324C434534B3 /* Pods-ClipVideo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Leshi Co., Ltd";
@@ -1057,7 +1077,12 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = House_LetvCommon_20180427B;

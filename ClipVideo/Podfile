@@ -2,7 +2,8 @@
 
 target "ClipVideo" do
 
+    
     pod 'Masonry'
     pod 'BlocksKit', '~> 2.2.5'
-
+    pod 'Google-Mobile-Ads-SDK'
 end

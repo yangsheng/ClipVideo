@@ -12,6 +12,12 @@
 
 static NSString *const kCompositionPath = @"GLComposition";
 
+@interface VideoAudioComposition()
+@property(nonatomic, strong) AVMutableVideoComposition *videoComposition;
+@end
+
+
+
 @implementation VideoAudioComposition
 
 
@@ -136,6 +142,22 @@ static NSString *const kCompositionPath = @"GLComposition";
 
     // 创建可变的音视频组合
     AVMutableComposition *composition = [AVMutableComposition composition];
+    
+    
+    //----------实验转场--
+    AVMutableVideoComposition *videoComposition = nil;
+    videoComposition = [AVMutableVideoComposition videoComposition];
+    NSMutableArray *instructions = [NSMutableArray array];
+    
+    CMTimeRange *transitionTimeRanges = alloca(sizeof(CMTimeRange) * 3);
+    CMTimeRange *passThroughTimeRanges = alloca(sizeof(CMTimeRange) * 3);
+ 
+    CMTime nextClipStartTime = kCMTimeZero;
+    
+    AVURLAsset *videoAsset11 = nil;
+    CMTime transitionDuration = CMTimeMakeWithSeconds(1, 600);
+    //----------实验转场--
+    
     if (type == 0) {
         // 视频通道
         AVMutableCompositionTrack *videoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
@@ -166,6 +188,63 @@ static NSString *const kCompositionPath = @"GLComposition";
             [audioTrack insertTimeRange:timeRange ofTrack:audioAssetTrack atTime:atTime error:nil];
             
             atTime = CMTimeAdd(atTime, timeRange.duration);
+            
+            //----------实验转场--
+            videoAsset11 = videoAsset;
+
+            CMTime halfClipDuration = [videoAsset duration];
+            halfClipDuration.timescale *= 2;
+            
+            transitionDuration = CMTimeMinimum(transitionDuration, halfClipDuration);
+            
+            
+            CMTimeRange timeRangeInAsset;
+
+            timeRangeInAsset = CMTimeRangeMake(kCMTimeZero, [videoAsset duration]);
+            
+            passThroughTimeRanges[i] = CMTimeRangeMake(nextClipStartTime, timeRangeInAsset.duration);
+//            if (i > 0)
+//            {
+                passThroughTimeRanges[i].start = CMTimeAdd(passThroughTimeRanges[i].start,  CMTimeMakeWithSeconds(1, 600));
+                passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration,  CMTimeMakeWithSeconds(1, 600));
+//            }
+//            if (i+1 < 3)
+//            {
+//                passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration,  CMTimeMakeWithSeconds(1, 600));
+//            }
+            
+            nextClipStartTime = CMTimeAdd(nextClipStartTime, timeRangeInAsset.duration);
+            nextClipStartTime = CMTimeSubtract(nextClipStartTime,  CMTimeMakeWithSeconds(1, 600));
+             transitionTimeRanges[i] = CMTimeRangeMake(nextClipStartTime,  CMTimeMakeWithSeconds(1, 600));
+            
+            // Pass through clip i.
+            AVMutableVideoCompositionInstruction *passThroughInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+            passThroughInstruction.timeRange = passThroughTimeRanges[i];
+            
+            AVMutableVideoCompositionLayerInstruction *passThroughLayer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+            
+            passThroughInstruction.layerInstructions = [NSArray arrayWithObject:passThroughLayer];
+            [instructions addObject:passThroughInstruction];
+            
+            
+            // Add transition from clip i to clip i+1.
+            AVMutableVideoCompositionInstruction *transitionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+            transitionInstruction.timeRange = transitionTimeRanges[i];
+            
+            AVMutableVideoCompositionLayerInstruction *fromLayer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+            AVMutableVideoCompositionLayerInstruction *toLayer = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+            
+            //right
+            [fromLayer setTransformRampFromStartTransform:CGAffineTransformIdentity toEndTransform:CGAffineTransformMakeTranslation(-composition.naturalSize.width, 0.0) timeRange:transitionTimeRanges[i]];
+            
+            [toLayer setTransformRampFromStartTransform:CGAffineTransformMakeTranslation(composition.naturalSize.width, 0.0) toEndTransform:CGAffineTransformIdentity timeRange:transitionTimeRanges[i]];
+            
+            
+            transitionInstruction.layerInstructions = [NSArray arrayWithObjects:fromLayer, toLayer, nil];
+            [instructions addObject:transitionInstruction];
+            
+            //----------实验转场--
+            
         }
     }else{
         // 音频通道
@@ -192,6 +271,18 @@ static NSString *const kCompositionPath = @"GLComposition";
             atTime = CMTimeAdd(atTime, timeRange.duration);
         }
     }
+    
+    //----实验转场-
+    
+    AVAssetTrack *clipVideoTrack = [[videoAsset11 tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+    videoComposition.frameDuration = CMTimeMakeWithSeconds(1.0 / clipVideoTrack.nominalFrameRate, clipVideoTrack.naturalTimeScale);
+    videoComposition.renderSize = composition.naturalSize;
+    
+    videoComposition.instructions = instructions;
+    self.videoComposition = videoComposition;
+    //------实验转场-
+    
+    
     [self composition:composition storePath:outPutFilePath success:successBlcok];
 }
 - (void)compositionVideos:(NSURL*)videoUrl scale:(float )scale success:(SuccessBlcok)successBlcok{
@@ -273,11 +364,21 @@ static NSString *const kCompositionPath = @"GLComposition";
     }
     
     AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:avComposition presetName:_presetName];
+    
+    
+    
+    
     assetExport.outputFileType = AVFileTypeQuickTimeMovie;
     // 输出地址
     assetExport.outputURL = [NSURL fileURLWithPath:storePath];
     // 优化
     assetExport.shouldOptimizeForNetworkUse = YES;
+    
+    
+    //---------实验转场
+//    assetExport.videoComposition = self.videoComposition;
+    //---------实验转场
+    
     
     __block NSTimer *timer = nil;
 

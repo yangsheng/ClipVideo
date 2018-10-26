@@ -36,7 +36,7 @@
     [UMConfigure initWithAppkey:UMAppKey channel:UMChannel];
     
     
-    [GADMobileAds configureWithApplicationID:GADMobileAdsID];
+//    [GADMobileAds configureWithApplicationID:GADMobileAdsID];
     
     return YES;
 }

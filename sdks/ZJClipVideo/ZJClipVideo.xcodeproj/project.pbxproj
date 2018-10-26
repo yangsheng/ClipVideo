@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A27A2C72181B33200F90564 /* NSGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2C12181B33200F90564 /* NSGIF.m */; };
+		7A27A2C82181B33200F90564 /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2C32181B33200F90564 /* UIImage+Crop.m */; };
+		7A27A2C92181B33200F90564 /* ZJVideoTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2C62181B33200F90564 /* ZJVideoTools.m */; };
+		7A27A2CA2181B3F000F90564 /* UIView+Frame.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7AF6CC6621806BB4000D90F2 /* UIView+Frame.h */; };
+		7A27A2CB2181B3F000F90564 /* NSGIF.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A27A2C52181B33200F90564 /* NSGIF.h */; };
+		7A27A2CC2181B3F000F90564 /* UIImage+Crop.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A27A2C42181B33200F90564 /* UIImage+Crop.h */; };
+		7A27A2CD2181B3F000F90564 /* ZJVideoTools.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A27A2C22181B33200F90564 /* ZJVideoTools.h */; };
 		7A511665217477F800846047 /* GLProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A51165B217477F800846047 /* GLProgressLayer.m */; };
 		7A511666217477F800846047 /* VideoAudioEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A51165C217477F800846047 /* VideoAudioEdit.m */; };
 		7A511667217477F800846047 /* GLFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A511660217477F800846047 /* GLFolderManager.m */; };
@@ -18,7 +25,6 @@
 		7A5116A9217479D200846047 /* VideoAudioEdit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A511664217477F800846047 /* VideoAudioEdit.h */; };
 		7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165F217477F800846047 /* VideoAudioComposition.h */; };
 		7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A674E4221742D3300009DC3 /* ZJClipVideo.m */; };
-		7A674E4421742D3300009DC3 /* ZJClipVideo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A674E4121742D3300009DC3 /* ZJClipVideo.h */; };
 		7AF6CC4821804CC5000D90F2 /* ZJSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */; };
 		7AF6CC4921804CC5000D90F2 /* NSURL+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */; };
 		7AF6CC4A21804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */; };
@@ -35,6 +41,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				7A27A2CA2181B3F000F90564 /* UIView+Frame.h in CopyFiles */,
+				7A27A2CB2181B3F000F90564 /* NSGIF.h in CopyFiles */,
+				7A27A2CC2181B3F000F90564 /* UIImage+Crop.h in CopyFiles */,
+				7A27A2CD2181B3F000F90564 /* ZJVideoTools.h in CopyFiles */,
 				7AF6CC4B21804D50000D90F2 /* NSURL+ZJSaveToCameraRoll.h in CopyFiles */,
 				7AF6CC4C21804D50000D90F2 /* UIImage+ZJSaveToCameraRoll.h in CopyFiles */,
 				7AF6CC4D21804D50000D90F2 /* ZJSaveToCameraRollOperation.h in CopyFiles */,
@@ -43,13 +53,18 @@
 				7A5116A5217479D200846047 /* UIImage+buffer.h in CopyFiles */,
 				7A5116A7217479D200846047 /* GLProgressLayer.h in CopyFiles */,
 				7A5116A9217479D200846047 /* VideoAudioEdit.h in CopyFiles */,
-				7A674E4421742D3300009DC3 /* ZJClipVideo.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A27A2C12181B33200F90564 /* NSGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSGIF.m; sourceTree = "<group>"; };
+		7A27A2C22181B33200F90564 /* ZJVideoTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJVideoTools.h; sourceTree = "<group>"; };
+		7A27A2C32181B33200F90564 /* UIImage+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Crop.m"; sourceTree = "<group>"; };
+		7A27A2C42181B33200F90564 /* UIImage+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Crop.h"; sourceTree = "<group>"; };
+		7A27A2C52181B33200F90564 /* NSGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSGIF.h; sourceTree = "<group>"; };
+		7A27A2C62181B33200F90564 /* ZJVideoTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJVideoTools.m; sourceTree = "<group>"; };
 		7A51165A217477F800846047 /* GLFolderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFolderManager.h; sourceTree = "<group>"; };
 		7A51165B217477F800846047 /* GLProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgressLayer.m; sourceTree = "<group>"; };
 		7A51165C217477F800846047 /* VideoAudioEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAudioEdit.m; sourceTree = "<group>"; };
@@ -141,6 +156,12 @@
 				7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */,
 				7AF6CC4621804CC5000D90F2 /* ZJSaveToCameraRollOperation.h */,
 				7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */,
+				7A27A2C52181B33200F90564 /* NSGIF.h */,
+				7A27A2C12181B33200F90564 /* NSGIF.m */,
+				7A27A2C42181B33200F90564 /* UIImage+Crop.h */,
+				7A27A2C32181B33200F90564 /* UIImage+Crop.m */,
+				7A27A2C22181B33200F90564 /* ZJVideoTools.h */,
+				7A27A2C62181B33200F90564 /* ZJVideoTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -207,9 +228,12 @@
 				7A511667217477F800846047 /* GLFolderManager.m in Sources */,
 				7AF6CC4A21804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m in Sources */,
 				7AF6CC4921804CC5000D90F2 /* NSURL+ZJSaveToCameraRoll.m in Sources */,
+				7A27A2C92181B33200F90564 /* ZJVideoTools.m in Sources */,
 				7A511665217477F800846047 /* GLProgressLayer.m in Sources */,
 				7AF6CC4821804CC5000D90F2 /* ZJSaveToCameraRollOperation.m in Sources */,
 				7AF6CC6821806BB4000D90F2 /* UIView+Frame.m in Sources */,
+				7A27A2C82181B33200F90564 /* UIImage+Crop.m in Sources */,
+				7A27A2C72181B33200F90564 /* NSGIF.m in Sources */,
 				7A511669217477F800846047 /* UIImage+buffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

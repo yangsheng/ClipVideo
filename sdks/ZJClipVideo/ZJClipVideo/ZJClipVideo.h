@@ -14,6 +14,10 @@
 #import "UIImage+ZJSaveToCameraRoll.h"
 #import "UIView+Frame.h"
 #import "GLProgressLayer.h"
+#import "NSGIF.h"
+#import "UIImage+Crop.h"
+#import "ZJVideoTools.h"
+
 @interface ZJClipVideo : NSObject
 
 

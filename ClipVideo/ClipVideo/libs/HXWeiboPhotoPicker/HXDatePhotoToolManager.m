@@ -298,7 +298,7 @@
     }
 }
 
-- (AVAssetExportSession *)compressedVideoWithMediumQualityWriteToTemp:(id)obj progress:(void (^)(float progress))progress success:(void (^)(NSURL *url))success failure:(void (^)())failure {
+- (AVAssetExportSession *)compressedVideoWithMediumQualityWriteToTemp:(id)obj progress:(void (^)(float progress))progress success:(void (^)(NSURL *url))success failure:(void (^)(void))failure {
     AVAsset *avAsset;
     if ([obj isKindOfClass:[AVAsset class]]) {
         avAsset = obj;

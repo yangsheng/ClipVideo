@@ -11,10 +11,11 @@
 #import "ViewController.h"
 #import <UMCommon/UMCommon.h>
 
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define UMChannel @"App Store"
 #define UMAppKey @"5bcb1ea0f1f55666bb000be0"
-
+#define GADMobileAdsID @"ca-app-pub-4593956126356094~4390663891"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,9 @@
     
     
     [UMConfigure initWithAppkey:UMAppKey channel:UMChannel];
+    
+    
+    [GADMobileAds configureWithApplicationID:GADMobileAdsID];
     
     return YES;
 }

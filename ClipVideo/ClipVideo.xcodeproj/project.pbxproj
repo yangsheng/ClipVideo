@@ -19,6 +19,7 @@
 		7A27A2B1218173D500F90564 /* BeautificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A27A2AF218173D500F90564 /* BeautificationController.xib */; };
 		7A27A2B52181940F00F90564 /* ExitEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2B42181940F00F90564 /* ExitEditorView.m */; };
 		7A27A2C02181ABDB00F90564 /* SuperController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2BF2181ABDB00F90564 /* SuperController.m */; };
+		7A27A2D02181C01600F90564 /* TransferFieldController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A27A2CF2181C01600F90564 /* TransferFieldController.m */; };
 		7A51168A2174787C00846047 /* 绵阳@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116702174787C00846047 /* 绵阳@2x.png */; };
 		7A51168B2174787C00846047 /* 老鼠@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116712174787C00846047 /* 老鼠@2x.png */; };
 		7A51168C2174787C00846047 /* 白兔@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A5116722174787C00846047 /* 白兔@2x.png */; };
@@ -142,6 +143,8 @@
 		7A27A2B42181940F00F90564 /* ExitEditorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExitEditorView.m; sourceTree = "<group>"; };
 		7A27A2BD2181ABDA00F90564 /* SuperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperController.h; sourceTree = "<group>"; };
 		7A27A2BF2181ABDB00F90564 /* SuperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperController.m; sourceTree = "<group>"; };
+		7A27A2CE2181C01600F90564 /* TransferFieldController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferFieldController.h; sourceTree = "<group>"; };
+		7A27A2CF2181C01600F90564 /* TransferFieldController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferFieldController.m; sourceTree = "<group>"; };
 		7A35ED882174B02C00646560 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7A5116702174787C00846047 /* 绵阳@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "绵阳@2x.png"; sourceTree = "<group>"; };
 		7A5116712174787C00846047 /* 老鼠@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老鼠@2x.png"; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				7A27A2A82181710C00F90564 /* SuperPlayController.h */,
 				7A27A2A92181710C00F90564 /* SuperPlayController.m */,
 				7A27A2AA2181710C00F90564 /* SuperPlayController.xib */,
+				7A27A2CE2181C01600F90564 /* TransferFieldController.h */,
+				7A27A2CF2181C01600F90564 /* TransferFieldController.m */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
 				7A5116A2217478D300846047 /* CompositionListViewController.m */,
 				7A674E0A21742C3A00009DC3 /* Main.storyboard */,
@@ -841,6 +846,7 @@
 				7AB3CAA7217F4351002216C2 /* HXCustomCameraViewController.m in Sources */,
 				7AB3CAA9217F4351002216C2 /* HXPhotoConfiguration.m in Sources */,
 				7AB3CABC217F4351002216C2 /* HXCustomCameraController.m in Sources */,
+				7A27A2D02181C01600F90564 /* TransferFieldController.m in Sources */,
 				7AB3CB06217F4406002216C2 /* UIView+WebCache.m in Sources */,
 				7A27A2B0218173D500F90564 /* BeautificationController.m in Sources */,
 				7AB3CAC6217F4351002216C2 /* HXAlbumModel.m in Sources */,

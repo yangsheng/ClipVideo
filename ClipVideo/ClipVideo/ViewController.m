@@ -15,11 +15,15 @@
 #import "HXPhotoPicker.h"
 #import "PlayController.h"
 
+#import "TransferFieldController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 
-@interface ViewController ()
 
 
+@interface ViewController ()<GADBannerViewDelegate>
+
+@property(nonatomic, strong) GADBannerView * bannerView;//广告
 
 @property (strong, nonatomic) HXPhotoManager *manager;
 
@@ -111,7 +115,39 @@
     
     self.title = @"剪影";
 
+    GADAdSize size = GADAdSizeFromCGSize(CGSizeMake(kScreenWidth, 50));
+    self.bannerView = [[GADBannerView alloc]
+                       initWithAdSize:size];
+    self.bannerView.delegate = self;
+    [self addBannerViewToView:self.bannerView];
+    
+    self.bannerView.adUnitID = @"ca-app-pub-4593956126356094/5783636614";
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
+    
 }
+- (void)addBannerViewToView:(UIView *)bannerView {
+    bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:bannerView];
+    [self.view addConstraints:@[
+                                [NSLayoutConstraint constraintWithItem:bannerView
+                                                             attribute:NSLayoutAttributeBottom
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self.bottomLayoutGuide
+                                                             attribute:NSLayoutAttributeTop
+                                                            multiplier:1
+                                                              constant:0],
+                                [NSLayoutConstraint constraintWithItem:bannerView
+                                                             attribute:NSLayoutAttributeCenterX
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self.view
+                                                             attribute:NSLayoutAttributeCenterX
+                                                            multiplier:1
+                                                              constant:0]
+                                ]];
+}
+
+
 
 - (void)actionWithType:(ActionType )actionType{
 
@@ -207,11 +243,12 @@
 //    [videoAudioManager compositionVideos:urlArr timeRanges:nil success:^(NSURL *fileUrl) {
 //        [weakSelf.progressLayer hiddenProgress];
     
-        PlayController *vc = [[PlayController alloc] init];
-        
-        vc.urlArray = urlArr;
-        
-        [self.navigationController pushViewController:vc animated:YES];
+    
+    TransferFieldController *vc = [[TransferFieldController alloc] init];
+
+    vc.urlArray = urlArr;
+    vc.currentTtime = CMTimeMake(0, 600);
+    [self.navigationController pushViewController:vc animated:YES];
      
 //        [vc playWithUrl:fileUrl];
         
@@ -275,6 +312,38 @@
     
    
     
+}
+#pragma mark -- GADBannerViewDelegate
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    NSLog(@"adViewDidReceiveAd");
+}
+
+/// Tells the delegate an ad request failed.
+- (void)adView:(GADBannerView *)adView
+didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+/// Tells the delegate that a full-screen view will be presented in response
+/// to the user clicking on an ad.
+- (void)adViewWillPresentScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillPresentScreen");
+}
+
+/// Tells the delegate that the full-screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillDismissScreen");
+}
+
+/// Tells the delegate that the full-screen view has been dismissed.
+- (void)adViewDidDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewDidDismissScreen");
+}
+
+/// Tells the delegate that a user click will open another app (such as
+/// the App Store), backgrounding the current app.
+- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
+    NSLog(@"adViewWillLeaveApplication");
 }
 
 @end

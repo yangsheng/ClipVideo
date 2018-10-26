@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 50, 80, 50, 30)];
+    self.saveBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 50, 72, 50, 30)];
     [self.saveBtn setTitle:@"保存" forState:UIControlStateNormal];
     [self.saveBtn setBackgroundColor:[UIColor redColor]];
 

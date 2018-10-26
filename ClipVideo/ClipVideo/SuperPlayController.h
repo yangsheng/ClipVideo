@@ -15,6 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) ExitEditorView * backView;
 @property(nonatomic, strong) NSArray * urlArray;
 
+/**
+ 当前观看时间
+ */
+@property(assign,nonatomic) CMTime  currentTtime;
+
+/**
+ 视频播放器背景
+ */
+@property(nonatomic, strong) UIView * playerBgView;
+
 - (void)playWithUrl:(NSURL *)url;
 
 

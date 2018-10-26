@@ -14,21 +14,25 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - Google-Mobile-Ads-SDK (7.35.1)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
+  - Google-Mobile-Ads-SDK
   - Masonry
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BlocksKit
+    - Google-Mobile-Ads-SDK
     - Masonry
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: bf7eb9b2a383a48e1a32ec3286e75f6abddaaf4e
+PODFILE CHECKSUM: 52b818e241cd0ea85f6ad1be490a1c3131be4b21
 
 COCOAPODS: 1.5.3

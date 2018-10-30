@@ -123,8 +123,6 @@
 }
 
 
-- (void)exitEditorViewConfirm{
-    [self confirmBack];
-}
+
 
 @end

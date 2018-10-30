@@ -17,7 +17,8 @@ typedef NS_ENUM(NSInteger,ActionType) {
     VideoReplay,
     VideoSpeed,
     VideoRatio,
-    VideoWatermark
+    VideoWatermark,
+    VideoFilter
 };
 
 

@@ -16,8 +16,6 @@
 
 @property(nonatomic, strong) AVPlayerItem * currentPlayerItem;
 
-
-
 @property(nonatomic, strong) UIButton * playBtn;
 
 @end
@@ -150,5 +148,8 @@
 }
 - (void)confirmBack{
     [super backAction];
+}
+- (void)exitEditorViewConfirm{
+    [self confirmBack];
 }
 @end

@@ -102,6 +102,9 @@
 		7AB3CB05217F4406002216C2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAEE217F4406002216C2 /* UIView+WebCacheOperation.m */; };
 		7AB3CB06217F4406002216C2 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAEF217F4406002216C2 /* UIView+WebCache.m */; };
 		7AB3CB07217F4406002216C2 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3CAF3217F4406002216C2 /* UIButton+WebCache.m */; };
+		7AD7522A218855F0007B98C8 /* FilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD75229218855F0007B98C8 /* FilterController.m */; };
+		7AD7523021886206007B98C8 /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7AD7522F21886206007B98C8 /* sample_iPod.m4v */; };
+		7AD7523321886D00007B98C8 /* origin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD7523221886D00007B98C8 /* origin.png */; };
 		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
 		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
 		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
@@ -295,6 +298,10 @@
 		7AB3CAF2217F4406002216C2 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		7AB3CAF3217F4406002216C2 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		7AB3CAF4217F4406002216C2 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		7AD75228218855F0007B98C8 /* FilterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterController.h; sourceTree = "<group>"; };
+		7AD75229218855F0007B98C8 /* FilterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterController.m; sourceTree = "<group>"; };
+		7AD7522F21886206007B98C8 /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
+		7AD7523221886D00007B98C8 /* origin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origin.png; sourceTree = "<group>"; };
 		7AF6CC3721801F12000D90F2 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		7AF6CC3E2180472B000D90F2 /* PlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayController.h; sourceTree = "<group>"; };
 		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
@@ -438,6 +445,8 @@
 		7A674E0321742C3A00009DC3 /* ClipVideo */ = {
 			isa = PBXGroup;
 			children = (
+				7AD7522F21886206007B98C8 /* sample_iPod.m4v */,
+				7AD7523221886D00007B98C8 /* origin.png */,
 				1877119E217B1A410086DE5C /* libs */,
 				7A51166B2174787C00846047 /* resource */,
 				7A674E0421742C3A00009DC3 /* AppDelegate.h */,
@@ -459,6 +468,8 @@
 				7A27A2AA2181710C00F90564 /* SuperPlayController.xib */,
 				7A27A2CE2181C01600F90564 /* TransferFieldController.h */,
 				7A27A2CF2181C01600F90564 /* TransferFieldController.m */,
+				7AD75228218855F0007B98C8 /* FilterController.h */,
+				7AD75229218855F0007B98C8 /* FilterController.m */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
 				7A5116A2217478D300846047 /* CompositionListViewController.m */,
 				7A674E0A21742C3A00009DC3 /* Main.storyboard */,
@@ -644,6 +655,7 @@
 				7A674DFD21742C3A00009DC3 /* Sources */,
 				7A674DFE21742C3A00009DC3 /* Frameworks */,
 				7A674DFF21742C3A00009DC3 /* Resources */,
+				EE817B0598EB48310FEAF8E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -744,6 +756,7 @@
 				7A5116952174787C00846047 /* img0.jpg in Resources */,
 				7A674E1121742C3B00009DC3 /* LaunchScreen.storyboard in Resources */,
 				7A674E0E21742C3B00009DC3 /* Assets.xcassets in Resources */,
+				7AD7523021886206007B98C8 /* sample_iPod.m4v in Resources */,
 				7A27A2B1218173D500F90564 /* BeautificationController.xib in Resources */,
 				7A5116962174787C00846047 /* img1.jpg in Resources */,
 				7A5116902174787C00846047 /* img4.jpg in Resources */,
@@ -751,6 +764,7 @@
 				7A5116932174787C00846047 /* img3.jpg in Resources */,
 				7A51168A2174787C00846047 /* 绵阳@2x.png in Resources */,
 				7A5116912174787C00846047 /* img6.jpg in Resources */,
+				7AD7523321886D00007B98C8 /* origin.png in Resources */,
 				7A674E0C21742C3A00009DC3 /* Main.storyboard in Resources */,
 				7A51168E2174787C00846047 /* img8.jpg in Resources */,
 				7A51168C2174787C00846047 /* 白兔@2x.png in Resources */,
@@ -791,6 +805,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE817B0598EB48310FEAF8E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClipVideo/Pods-ClipVideo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -855,6 +899,7 @@
 				7AB3CB06217F4406002216C2 /* UIView+WebCache.m in Sources */,
 				7A27A2B0218173D500F90564 /* BeautificationController.m in Sources */,
 				7AB3CAC6217F4351002216C2 /* HXAlbumModel.m in Sources */,
+				7AD7522A218855F0007B98C8 /* FilterController.m in Sources */,
 				7AB3CAAE217F4351002216C2 /* HXCollectionView.m in Sources */,
 				7AB3CAC7217F4351002216C2 /* UIButton+HXExtension.m in Sources */,
 				7AB3CAC9217F4351002216C2 /* HXCircleProgressView.m in Sources */,

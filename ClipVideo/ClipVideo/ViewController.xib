@@ -89,11 +89,11 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOy-wV-huj">
                     <rect key="frame" x="20" y="260" width="109" height="50"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                    <state key="normal" title="未开发">
+                    <state key="normal" title="视频滤镜">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="test:" destination="-1" eventType="touchUpInside" id="iaj-BK-nYS"/>
+                        <action selector="videoFilter:" destination="-1" eventType="touchUpInside" id="sqy-BH-S6S"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GO0-d1-RgO">

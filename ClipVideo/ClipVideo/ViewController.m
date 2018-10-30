@@ -14,11 +14,9 @@
 
 #import "HXPhotoPicker.h"
 #import "PlayController.h"
-
+#import "FilterController.h"
 #import "TransferFieldController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
-
-
 
 
 @interface ViewController ()<GADBannerViewDelegate>
@@ -186,6 +184,8 @@
                 NSLog(@"未开发");
             }else if (actionType == VideoWatermark){
                 [self videoWatermarkWithUrl:url];
+            }else if (actionType == VideoFilter){
+                [self videoFilterWithUrl:url];
             }
             
         } error:^{
@@ -196,6 +196,13 @@
         NSSLog(@"取消了");
     }];
 }
+
+- (void)videoFilterWithUrl:(NSURL *)url{
+    FilterController * filter = [[FilterController alloc]init];
+    [self.navigationController pushViewController:filter animated:YES];
+    [filter playWithUrl:url];
+}
+
 - (void)videoWatermarkWithUrl:(NSURL *)url{
     VideoAudioEdit * edit = [[VideoAudioEdit alloc]init];
     [edit watermarkForVideo:url videoName:@"merge11.mp4" success:^(NSURL *fileUrl) {
@@ -322,8 +329,8 @@
      [self actionWithType:VideoWatermark];
 }
 
-- (IBAction)test:(id)sender {
-    
+- (IBAction)videoFilter:(id)sender {
+     [self actionWithType:VideoFilter];
    
     
 }

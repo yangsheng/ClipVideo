@@ -119,6 +119,7 @@
 - (void)playWithUrl:(NSURL *)url{
     // 传入地址
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
+
     // 播放器
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
     // 播放器layer

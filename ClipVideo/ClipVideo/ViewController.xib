@@ -19,6 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Vbj-qf-9SQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edd-wa-ej2">
                     <rect key="frame" x="20" y="80" width="109" height="50"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -76,9 +79,12 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYf-gS-qUa">
                     <rect key="frame" x="139" y="260" width="109" height="50"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                    <state key="normal" title="未开发">
+                    <state key="normal" title="添加水印">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="addingWatermark:" destination="-1" eventType="touchUpInside" id="bx0-ha-GHX"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOy-wV-huj">
                     <rect key="frame" x="20" y="260" width="109" height="50"/>
@@ -110,6 +116,7 @@
                 <constraint firstItem="UxN-9C-hSU" firstAttribute="top" secondItem="ctK-pE-f2d" secondAttribute="bottom" constant="10" id="4iV-gb-brI"/>
                 <constraint firstItem="GXB-ey-lFH" firstAttribute="top" secondItem="GO0-d1-RgO" secondAttribute="bottom" constant="10" id="9Zh-D6-ImH"/>
                 <constraint firstItem="Edd-wa-ej2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ATj-tR-Sar"/>
+                <constraint firstItem="Vbj-qf-9SQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Da1-Ph-8zE"/>
                 <constraint firstItem="cYf-gS-qUa" firstAttribute="top" secondItem="v8E-1T-7yR" secondAttribute="bottom" constant="10" id="DsW-3Y-mHp"/>
                 <constraint firstItem="cYf-gS-qUa" firstAttribute="height" secondItem="GO0-d1-RgO" secondAttribute="height" id="EDg-M9-Tbe"/>
                 <constraint firstItem="ctK-pE-f2d" firstAttribute="height" secondItem="Edd-wa-ej2" secondAttribute="height" id="FT4-dM-uba"/>
@@ -130,13 +137,19 @@
                 <constraint firstItem="UxN-9C-hSU" firstAttribute="leading" secondItem="Edd-wa-ej2" secondAttribute="leading" id="dbg-0t-gz6"/>
                 <constraint firstItem="UxN-9C-hSU" firstAttribute="height" secondItem="Edd-wa-ej2" secondAttribute="height" id="eCB-Gj-sFt"/>
                 <constraint firstItem="ctK-pE-f2d" firstAttribute="width" secondItem="Edd-wa-ej2" secondAttribute="width" id="eFR-RI-9eu"/>
+                <constraint firstAttribute="bottom" secondItem="Vbj-qf-9SQ" secondAttribute="bottom" id="gm9-XY-6oX"/>
+                <constraint firstAttribute="trailing" secondItem="Vbj-qf-9SQ" secondAttribute="trailing" id="kkQ-qU-Bwr"/>
                 <constraint firstItem="cYf-gS-qUa" firstAttribute="leading" secondItem="GO0-d1-RgO" secondAttribute="leading" id="lqi-Fm-c5N"/>
                 <constraint firstItem="GO0-d1-RgO" firstAttribute="width" secondItem="Edd-wa-ej2" secondAttribute="width" id="pgk-xM-dTe"/>
                 <constraint firstItem="GXB-ey-lFH" firstAttribute="width" secondItem="GO0-d1-RgO" secondAttribute="width" id="qHb-Nz-Omc"/>
                 <constraint firstItem="GXB-ey-lFH" firstAttribute="height" secondItem="GO0-d1-RgO" secondAttribute="height" id="vay-bh-qgU"/>
                 <constraint firstItem="v8E-1T-7yR" firstAttribute="leading" secondItem="GO0-d1-RgO" secondAttribute="leading" id="wty-FD-IbY"/>
+                <constraint firstItem="Vbj-qf-9SQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yIQ-ek-IAM"/>
             </constraints>
-            <point key="canvasLocation" x="178" y="45"/>
+            <point key="canvasLocation" x="-537" y="48"/>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="1080" height="1921"/>
+    </resources>
 </document>

@@ -184,8 +184,10 @@
                 
             }else if (actionType == VideoRatio){
                 NSLog(@"未开发");
+            }else if (actionType == VideoWatermark){
+                [self videoWatermarkWithUrl:url];
             }
-
+            
         } error:^{
             
         }];
@@ -194,7 +196,16 @@
         NSSLog(@"取消了");
     }];
 }
-
+- (void)videoWatermarkWithUrl:(NSURL *)url{
+    VideoAudioEdit * edit = [[VideoAudioEdit alloc]init];
+    [edit watermarkForVideo:url videoName:@"merge11.mp4" success:^(NSURL *fileUrl) {
+        PlayController *vc = [[PlayController alloc] init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        [vc playWithUrl:url];
+    }];
+}
 - (void)videoSpeedWithUrl:(NSURL *)url{
     
     VideoAudioComposition *videoAudioManager = [[VideoAudioComposition alloc] init];
@@ -208,7 +219,7 @@
   
        [self.navigationController pushViewController:vc animated:YES];
   
-       [vc playWithUrl:url];
+       [vc playWithUrl:fileUrl];
 
     }];
 }
@@ -306,6 +317,9 @@
 #pragma mark -视频比例
 - (IBAction)videoRatio:(UIButton *)sender {
     [self actionWithType:VideoRatio];
+}
+- (IBAction)addingWatermark:(id)sender {
+     [self actionWithType:VideoWatermark];
 }
 
 - (IBAction)test:(id)sender {

@@ -452,7 +452,8 @@ static NSString *const kVideoPath = @"GLVideo";
     mutableVideoComposition.frameDuration = CMTimeMake(1, 25);//videoAssetTrack.timeRange.duration;
     mutableVideoComposition.instructions = @[videoCompostionInstruction];
     
-    [self addWaterLayerWithAVMutableVideoComposition:mutableVideoComposition];
+//    [self addWaterLayerWithAVMutableVideoComposition:mutableVideoComposition];
+    [self addBackgroundWithAVMutableVideoComposition:mutableVideoComposition];
     
     //设置输出
     AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:mutableComposition presetName:AVAssetExportPresetHighestQuality];
@@ -466,12 +467,16 @@ static NSString *const kVideoPath = @"GLVideo";
     
     __block NSTimer *timer = nil;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        NSLog(@" 打印信息:%f",assetExport.progress);
-        if (self.progressBlock) {
-            self.progressBlock(assetExport.progress);
-        }
-    }];
+    if (@available(iOS 10.0, *)) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            NSLog(@" 打印信息:%f",assetExport.progress);
+            if (self.progressBlock) {
+                self.progressBlock(assetExport.progress);
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
     // 合成完毕
     [assetExport exportAsynchronouslyWithCompletionHandler:^{
         if (timer) {
@@ -506,7 +511,60 @@ static NSString *const kVideoPath = @"GLVideo";
     }];
 
 }
+#pragma mark -背景框
+- (void)addBackgroundWithAVMutableVideoComposition:(AVMutableVideoComposition*)mutableVideoComposition
+{
+    
+    UIImage * borderImage = [UIImage imageNamed:@"背景边框"];
+    
+    CALayer *backgroundLayer = [CALayer layer];
+    [backgroundLayer setContents:(id)[borderImage CGImage]];
+    backgroundLayer.frame = CGRectMake(0, 0, mutableVideoComposition.renderSize.width, mutableVideoComposition.renderSize.height);
+    [backgroundLayer setMasksToBounds:YES];
+    
+    CALayer *parentLayer = [CALayer layer];
+    CALayer *videoLayer = [CALayer layer];
+    
+    videoLayer.frame = CGRectMake(20, 20,
+                                  mutableVideoComposition.renderSize.width-(20*2), mutableVideoComposition.renderSize.height-(20*2));
 
+    
+    parentLayer.frame = CGRectMake(0, 0, mutableVideoComposition.renderSize.width, mutableVideoComposition.renderSize.height);
+    
+    
+    [parentLayer addSublayer:backgroundLayer];
+    [parentLayer addSublayer:videoLayer];
+    
+    mutableVideoComposition.animationTool = [AVVideoCompositionCoreAnimationTool
+                                 videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
+}
+
+
+#pragma mark -3D
+- (void)add3DWithAVMutableVideoComposition:(AVMutableVideoComposition*)mutableVideoComposition
+{
+    // 1 - Layer setup
+    CALayer *parentLayer = [CALayer layer];
+    CALayer *videoLayer = [CALayer layer];
+    parentLayer.frame = CGRectMake(0, 0, mutableVideoComposition.renderSize.width-200, mutableVideoComposition.renderSize.height-200);
+    videoLayer.frame = CGRectMake(0, 0, mutableVideoComposition.renderSize.width-200, mutableVideoComposition.renderSize.height-100);
+    [parentLayer addSublayer:videoLayer];
+    // 2 - Set up the transform
+    CATransform3D identityTransform = CATransform3DIdentity;
+    // 3 - 具体设置可以看demo
+    //if (_tiltSegment.selectedSegmentIndex == 0) {
+        identityTransform.m34 = 1.0 / 1000; // greater the denominator lesser will be the transformation
+   // } else if (_tiltSegment.selectedSegmentIndex == 1) {
+    //    identityTransform.m34 = 1.0 / -1000; // lesser the denominator lesser will be the transformation
+    //}
+    // 4 - 给我们的video层做rotation
+    videoLayer.transform = CATransform3DRotate(identityTransform, M_PI/6.0, 1.0f, 0.0f, 0.0f);
+    // 5 - Composition
+    mutableVideoComposition.animationTool = [AVVideoCompositionCoreAnimationTool
+                                 videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
+
+}
+#pragma mark -水印
 - (void)addWaterLayerWithAVMutableVideoComposition:(AVMutableVideoComposition*)mutableVideoComposition
 {
     //-------------------layer

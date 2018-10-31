@@ -515,7 +515,7 @@ static NSString *const kVideoPath = @"GLVideo";
 - (void)addBackgroundWithAVMutableVideoComposition:(AVMutableVideoComposition*)mutableVideoComposition
 {
     
-    UIImage * borderImage = [UIImage imageNamed:@"背景边框"];
+    UIImage * borderImage = [UIImage imageNamed:@"169"];
     
     CALayer *backgroundLayer = [CALayer layer];
     [backgroundLayer setContents:(id)[borderImage CGImage]];
@@ -525,15 +525,16 @@ static NSString *const kVideoPath = @"GLVideo";
     CALayer *parentLayer = [CALayer layer];
     CALayer *videoLayer = [CALayer layer];
     
-    videoLayer.frame = CGRectMake(20, 20,
-                                  mutableVideoComposition.renderSize.width-(20*2), mutableVideoComposition.renderSize.height-(20*2));
+    videoLayer.frame = CGRectMake(0, 0,
+                                  mutableVideoComposition.renderSize.width, mutableVideoComposition.renderSize.height);
 
     
     parentLayer.frame = CGRectMake(0, 0, mutableVideoComposition.renderSize.width, mutableVideoComposition.renderSize.height);
     
+    [parentLayer addSublayer:videoLayer];
     
     [parentLayer addSublayer:backgroundLayer];
-    [parentLayer addSublayer:videoLayer];
+    
     
     mutableVideoComposition.animationTool = [AVVideoCompositionCoreAnimationTool
                                  videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];

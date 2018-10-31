@@ -18,7 +18,6 @@
 #import "TransferFieldController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-
 @interface ViewController ()<GADBannerViewDelegate>
 
 @property(nonatomic, strong) GADBannerView * bannerView;//广告
@@ -113,6 +112,8 @@
     
     self.title = @"剪影";
 
+
+    
 //    GADAdSize size = GADAdSizeFromCGSize(CGSizeMake(kScreenWidth, 50));
 //    self.bannerView = [[GADBannerView alloc]
 //                       initWithAdSize:size];
@@ -210,7 +211,7 @@
         
         [self.navigationController pushViewController:vc animated:YES];
         
-        [vc playWithUrl:url];
+        [vc playWithUrl:fileUrl];
     }];
 }
 - (void)videoSpeedWithUrl:(NSURL *)url{

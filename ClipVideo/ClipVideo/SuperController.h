@@ -11,7 +11,7 @@
 @interface SuperController : UIViewController
 
 @property (strong, nonatomic) UIButton *backBtn;
-
+@property (strong, nonatomic) UIButton *rightBtn;
 - (void)backAction;
-
+- (void)rightAction;
 @end

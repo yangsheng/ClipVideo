@@ -105,6 +105,8 @@
 		7AD7522A218855F0007B98C8 /* FilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD75229218855F0007B98C8 /* FilterController.m */; };
 		7AD7523021886206007B98C8 /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7AD7522F21886206007B98C8 /* sample_iPod.m4v */; };
 		7AD7523321886D00007B98C8 /* origin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD7523221886D00007B98C8 /* origin.png */; };
+		7AD7523D2189834F007B98C8 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7523C2189834F007B98C8 /* FilterBottomView.m */; };
+		7AD7524121898A91007B98C8 /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7524021898A91007B98C8 /* FilterModel.m */; };
 		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
 		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
 		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
@@ -302,6 +304,10 @@
 		7AD75229218855F0007B98C8 /* FilterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterController.m; sourceTree = "<group>"; };
 		7AD7522F21886206007B98C8 /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
 		7AD7523221886D00007B98C8 /* origin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origin.png; sourceTree = "<group>"; };
+		7AD7523B2189834F007B98C8 /* FilterBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterBottomView.h; sourceTree = "<group>"; };
+		7AD7523C2189834F007B98C8 /* FilterBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterBottomView.m; sourceTree = "<group>"; };
+		7AD7523F21898A91007B98C8 /* FilterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
+		7AD7524021898A91007B98C8 /* FilterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
 		7AF6CC3721801F12000D90F2 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		7AF6CC3E2180472B000D90F2 /* PlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayController.h; sourceTree = "<group>"; };
 		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
@@ -470,6 +476,10 @@
 				7A27A2CF2181C01600F90564 /* TransferFieldController.m */,
 				7AD75228218855F0007B98C8 /* FilterController.h */,
 				7AD75229218855F0007B98C8 /* FilterController.m */,
+				7AD7523B2189834F007B98C8 /* FilterBottomView.h */,
+				7AD7523C2189834F007B98C8 /* FilterBottomView.m */,
+				7AD7523F21898A91007B98C8 /* FilterModel.h */,
+				7AD7524021898A91007B98C8 /* FilterModel.m */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
 				7A5116A2217478D300846047 /* CompositionListViewController.m */,
 				7A674E0A21742C3A00009DC3 /* Main.storyboard */,
@@ -874,7 +884,9 @@
 				7AB3CAB6217F4351002216C2 /* HXPhotoTools.m in Sources */,
 				7AB3CAFF217F4406002216C2 /* SDImageCache.m in Sources */,
 				7AB3CAC2217F4351002216C2 /* NSDate+HXExtension.m in Sources */,
+				7AD7524121898A91007B98C8 /* FilterModel.m in Sources */,
 				7AB3CAFE217F4406002216C2 /* SDWebImagePrefetcher.m in Sources */,
+				7AD7523D2189834F007B98C8 /* FilterBottomView.m in Sources */,
 				7AB3CABB217F4351002216C2 /* HXDatePhotoViewPresentTransition.m in Sources */,
 				7AB3CAC5217F4351002216C2 /* HXPhotoSubViewCell.m in Sources */,
 				7AB3CAB0217F4351002216C2 /* UIFont+HXExtension.m in Sources */,

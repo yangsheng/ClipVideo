@@ -131,7 +131,7 @@
 - (void)playWithUrl:(NSURL *)url{
     
     _filePath = url;
-
+    
     _playerItem = [[AVPlayerItem alloc]initWithURL:_filePath];
     
     //监听AVPlayer播放完成通知
@@ -163,8 +163,12 @@
     // 初始化
     _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480, 640)];
     _movieWriter.encodingLiveVideo = NO;
-    _movieWriter.shouldPassthroughAudio = NO;
-    _movieWriter.assetWriter.movieFragmentInterval = kCMTimeInvalid;
+//    _movieWriter.shouldPassthroughAudio = NO;
+
+    _movieWriter.shouldPassthroughAudio = YES;//是否使用源音源
+    
+//    _gpuSaveMovie.audioEncodingTarget = _movieWriter;//加入声音
+    
     /**
      如果你设置了 _movie.audioEncodingTarget = _writer;
      会报如下错误：
@@ -174,17 +178,19 @@
     
     // 添加滤镜
 
+
     GPUImageToonFilter *filter = [[GPUImageToonFilter alloc] init];
 
+    
+    
     [_gpuSaveMovie addTarget:filter];
     [filter addTarget:_movieWriter];
     
     [_gpuSaveMovie enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
     
-    [_gpuSaveMovie startProcessing];
-    
     [_movieWriter startRecording];
-    
+    [_gpuSaveMovie startProcessing];
+
     timer = [NSTimer scheduledTimerWithTimeInterval:0.3f
                                                           target:self
                                                         selector:@selector(retrievingProgress)

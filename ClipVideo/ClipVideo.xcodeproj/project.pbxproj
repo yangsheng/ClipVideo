@@ -1106,11 +1106,10 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
 					"$(inherited)",
+					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lecloud.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_LetvCommon_20181029;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1147,11 +1146,10 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
 					"$(inherited)",
+					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lecloud.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = House_LetvCommon_20180427B;
 				TARGETED_DEVICE_FAMILY = "1,2";

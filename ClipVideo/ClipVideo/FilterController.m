@@ -441,7 +441,8 @@
     NSDictionary * dic15 = [NSDictionary dictionaryWithObjectsAndKeys:Filter15,@"filter",title15,@"name", nil];
     [arr addObject:dic15];
     
-    GPUImageOutput<GPUImageInput> * Filter16 = [[GPUImageSmoothToonFilter alloc] init];
+    GPUImageOutput<GPUImageInput> * Filter16 = [[GPUImageSmoothToonFilter alloc] init];//b
+    [(GPUImageSmoothToonFilter *)Filter16 setBlurRadiusInPixels:1.0];
     NSString * title16 = @"卡通";
     NSDictionary * dic16 = [NSDictionary dictionaryWithObjectsAndKeys:Filter16,@"filter",title16,@"name", nil];
     [arr addObject:dic16];

@@ -16,6 +16,7 @@
 #import "PlayController.h"
 #import "FilterController.h"
 #import "TransferFieldController.h"
+
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface ViewController ()<GADBannerViewDelegate>
@@ -120,6 +121,7 @@
     
     self.bannerView.adUnitID = @"ca-app-pub-4593956126356094/5783636614";
     self.bannerView.rootViewController = self;
+    
     [self.bannerView loadRequest:[GADRequest request]];
     
 }

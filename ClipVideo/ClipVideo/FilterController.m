@@ -10,9 +10,9 @@
 #import "FilterBottomView.h"
 #import "FilterModel.h"
 #import "GPUImage.h"
+#import "HXDownloadProgressView.h"
 @interface FilterController ()<GPUImageMovieDelegate,FilterBottomViewDelegate>
 {
-
     NSTimer * timer;
 }
 
@@ -38,11 +38,28 @@
 
 @property(nonatomic, strong) UIButton * pauseBtn;//暂停btn
 
+@property(nonatomic, assign) BOOL isExport;
 
+@property(nonatomic, strong) HXDownloadProgressView * downloadView;
+
+//背景层
+
+@property(nonatomic, strong) GPUImageGaussianBlurFilter *gaussianBlur;
+
+@property(nonatomic, strong) GPUImageAlphaBlendFilter *blendFilter;
 
 @end
 
 @implementation FilterController
+
+- (HXDownloadProgressView *)downloadView{
+    if (_downloadView == nil) {
+        _downloadView = [[HXDownloadProgressView alloc]initWithFrame:self.view.bounds];
+        [self.view addSubview:_downloadView];
+    }
+   return _downloadView;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -79,8 +96,17 @@
     [self.pauseBtn bk_addEventHandler:^(id sender) {
         if ([selfWeak.player rate] == 0) {//暂停
             
+            if (selfWeak.isExport) {//导出之后播放
+                
+                [selfWeak.gaussianBlur removeAllTargets];
+                [selfWeak.pixellateFilter removeAllTargets];
+                [selfWeak.gpuSaveMovie removeAllTargets];
+                [self addFiler];
+                
+            }
             [selfWeak.gpuMovie startProcessing];
             [selfWeak.player play];
+            
         }else{
 
             [selfWeak.gpuMovie cancelProcessing];
@@ -91,7 +117,7 @@
 
 - (void)setupVideo{
     
-    _pixellateFilter = [[GPUImageSepiaFilter alloc] init];
+    _pixellateFilter = [[GPUImageSepiaFilter alloc] init];//初始值
     
     _gpuView = [[GPUImageView alloc]initWithFrame:CGRectMake(0,72, kScreenWidth,kScreenWidth)];
     
@@ -121,7 +147,7 @@
     
     _gpuMovie.delegate  = self;
 
-    [_gpuMovie addTarget:_pixellateFilter];
+    [_gpuMovie addTarget:_gpuView];//开始进入是原画面
     
     //开始预览
     [_gpuMovie startProcessing];
@@ -139,55 +165,76 @@
     
      _player = [AVPlayer playerWithPlayerItem:_playerItem];
     
-    
+
     [self setupMovie];
     
     [_player play];
     
 }
 /**
- 不播放视频，视频添加滤镜直接保存本地
+ 视频添加滤镜直接保存本地
  */
 - (void)saveVideo {
     
     // 初始化 movie
+    
+    if (_gpuSaveMovie != nil) {
+        [_gpuSaveMovie removeAllTargets];
+        _gpuSaveMovie = nil;
+    }
+    
     _gpuSaveMovie = [[GPUImageMovie alloc] initWithURL:_filePath];
     _gpuSaveMovie.shouldRepeat = NO;
     _gpuSaveMovie.playAtActualSpeed = YES;
     
     // 设置加滤镜视频保存路径
-    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie.mp4"];
+    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie.mov"];
     unlink([pathToMovie UTF8String]);
     NSURL *movieURL       = [NSURL fileURLWithPath:pathToMovie];
     
-    // 初始化
-    _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480, 640)];
-    _movieWriter.encodingLiveVideo = NO;
-//    _movieWriter.shouldPassthroughAudio = NO;
+    
 
+    
+    
+    // 初始化
+    _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:[self videoSize]];
+    _movieWriter.encodingLiveVideo = NO;
     _movieWriter.shouldPassthroughAudio = YES;//是否使用源音源
-    
-//    _gpuSaveMovie.audioEncodingTarget = _movieWriter;//加入声音
-    
-    /**
-     如果你设置了 _movie.audioEncodingTarget = _writer;
-     会报如下错误：
-     *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[AVAssetWriterInput appendSampleBuffer:] Cannot append sample buffer: Input buffer must be in an uncompressed format when outputSettings is not nil'
-     暂时没去深究，以后再解决！
-     */
-    
+    _gpuSaveMovie.audioEncodingTarget = _movieWriter;//加入声音
+    [_gpuSaveMovie enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
+
     // 添加滤镜
 
+    //移除滤镜原有目标输出 暂停作用
+    [_pixellateFilter removeAllTargets];
+    [_gpuMovie removeAllTargets];
+    [_player pause];
+    _isExport = YES;
 
-    GPUImageToonFilter *filter = [[GPUImageToonFilter alloc] init];
+    
+    if ([_pixellateFilter isKindOfClass:[GPUImageGlassSphereFilter class]]) {
+        [(GPUImageGlassSphereFilter *)_pixellateFilter setRadius: [self GPUImageGlassSphereFilterRate]];
+    }
+    
+    self.gaussianBlur = [[GPUImageGaussianBlurFilter alloc] init];
+    [_gpuSaveMovie addTarget:_gaussianBlur];
+    _gaussianBlur.blurRadiusInPixels = 5.0;
+    
+    
+    _blendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+    _blendFilter.mix = 1.0;
+    
+    [_gaussianBlur addTarget:_blendFilter];
 
-    
-    
-    [_gpuSaveMovie addTarget:filter];
-    [filter addTarget:_movieWriter];
-    
-    [_gpuSaveMovie enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
-    
+    if (_pixellateFilter) {
+        [_gpuSaveMovie addTarget:_pixellateFilter];
+        [_pixellateFilter addTarget:_blendFilter];
+    }else{
+        [_gpuSaveMovie addTarget:_blendFilter];
+    }
+
+    [_blendFilter addTarget:_movieWriter];
+
     [_movieWriter startRecording];
     [_gpuSaveMovie startProcessing];
 
@@ -197,26 +244,64 @@
                                                         userInfo:nil
                                                          repeats:YES];
     
-    
     __weak typeof(self) weakSelf = self;
     
     [_movieWriter setCompletionBlock:^{
         NSLog(@"OK");
         NSLog(@"path;;;:%@",movieURL);
-//        [weakSelf.pixellateFilter removeTarget:weakSelf.movieWriter];
-//        [weakSelf.movieWriter finishRecording];
+        
+        [weakSelf.pixellateFilter removeAllTargets];
+        [weakSelf.movieWriter finishRecording];
+//      [weakSelf.gpuSaveMovie removeAllTargets];
         
         [movieURL saveVideoToCameraRollWithCompletion:^(NSString * _Nullable path, NSError * _Nullable error) {
             NSLog(@"保存ok");
         }];
-        
     }];
-    
 }
+
+- (CGFloat)GPUImageGlassSphereFilterRate{
+    //获取视频尺寸
+   
+    CGSize videoSize = [self videoSize];
+    
+    NSLog(@"%f,%f",videoSize.width,videoSize.height);
+    
+    CGFloat rate = 0.25;
+    
+    if (videoSize.width < videoSize.height) {
+        rate = videoSize.width/videoSize.height;
+    }else{
+        rate = videoSize.height/videoSize.width;
+    }
+    return rate/2.0;
+}
+- (CGSize)videoSize{
+    AVURLAsset *asset = [AVURLAsset assetWithURL:_filePath];
+    NSArray *array = asset.tracks;
+    CGSize videoSize = CGSizeZero;
+    for (AVAssetTrack *track in array) {
+        if ([track.mediaType isEqualToString:AVMediaTypeVideo]) {
+            videoSize = track.naturalSize;
+        }
+    }
+    return videoSize;
+}
+
 - (void)retrievingProgress
 {
-    NSLog(@"%f",_gpuSaveMovie.progress);
+    if (_gpuSaveMovie.progress < 1) {
+
+    }else{
+        
+        [timer invalidate];
+        
+        timer = nil;
+    }
     
+    [self.downloadView startAnima];
+    
+    self.downloadView.progress = _gpuSaveMovie.progress;
 }
 
 -(void)createEditView{
@@ -248,6 +333,7 @@
                    
                }else{
                    model.image = inputImage;
+                   model.isSelected = YES;
                }
                 
                 model.name = self->_GPUImgArr[i][@"name"];
@@ -260,26 +346,29 @@
     }
 }
 #pragma mark ------------------------滤镜数组-----------------------
-
+/***
+ 原图、美颜、魔焰、幻影、卡通风格1、光芒、曾经、沉寂、日系、美白、回忆、乔治亚、奶油、怀旧、优雅、夕阳、粉嫩、梦想、春、冬、黑白照、希望、老照片、自然、流年、夜幕、沙滩、破晓、复古、HDR、晕影、英伦风、浮雕、素描
+ 
+ 原图、优雅、红润、阳光、海蓝、炽黄、浓烈、闪耀、朝阳、经典、粉桃、雪梨、鲜果、麦茶、灰白、波普、光圈、海盐、黑白、胶片、焦黄、蓝调、迷糊、思念、素描、鱼眼、马赛克、模糊、
+ **/
 -(NSArray *)CreateGPUArr{
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     
     NSString * title0 = @"原图";
     NSDictionary * dic0 = [NSDictionary dictionaryWithObjectsAndKeys:@"",@"filter",title0,@"name", nil];
     [arr addObject:dic0];
-    
-    
+
     GPUImageOutput<GPUImageInput> * Filter5 = [[GPUImageGammaFilter alloc] init];
     [(GPUImageGammaFilter *)Filter5 setGamma:1.5];
     NSString * title5 = @"伽马线";
     NSDictionary * dic5 = [NSDictionary dictionaryWithObjectsAndKeys:Filter5,@"filter",title5,@"name", nil];
     [arr addObject:dic5];
     
-    
-    GPUImageOutput<GPUImageInput> * Filter6 = [[GPUImageColorInvertFilter alloc] init];
-    NSString * title6 = @"反色";
-    NSDictionary * dic6 = [NSDictionary dictionaryWithObjectsAndKeys:Filter6,@"filter",title6,@"name", nil];
-    [arr addObject:dic6];
+//
+//    GPUImageOutput<GPUImageInput> * Filter6 = [[GPUImageColorInvertFilter alloc] init];
+//    NSString * title6 = @"反色";
+//    NSDictionary * dic6 = [NSDictionary dictionaryWithObjectsAndKeys:Filter6,@"filter",title6,@"name", nil];
+//    [arr addObject:dic6];
     
     GPUImageOutput<GPUImageInput> * Filter7 = [[GPUImageSepiaFilter alloc] init];
     NSString * title7 = @"褐色怀旧";
@@ -297,10 +386,10 @@
     NSDictionary * dic8 = [NSDictionary dictionaryWithObjectsAndKeys:Filter8,@"filter",title8,@"name", nil];
     [arr addObject:dic8];
     
-    GPUImageOutput<GPUImageInput> * Filter9 = [[GPUImageHistogramGenerator alloc] init];
-    NSString * title9 = @"色彩直方图？";
-    NSDictionary * dic9 = [NSDictionary dictionaryWithObjectsAndKeys:Filter9,@"filter",title9,@"name", nil];
-    [arr addObject:dic9];
+//    GPUImageOutput<GPUImageInput> * Filter9 = [[GPUImageHistogramGenerator alloc] init];
+//    NSString * title9 = @"色彩直方图？";
+//    NSDictionary * dic9 = [NSDictionary dictionaryWithObjectsAndKeys:Filter9,@"filter",title9,@"name", nil];
+//    [arr addObject:dic9];
     
     GPUImageOutput<GPUImageInput> * Filter91 = [[GPUImageToneCurveFilter alloc] init];
     NSString * title91 = @"色调曲线";
@@ -341,10 +430,10 @@
     NSDictionary * dic13 = [NSDictionary dictionaryWithObjectsAndKeys:Filter13,@"filter",title13,@"name", nil];
     [arr addObject:dic13];
     
-    GPUImageOutput<GPUImageInput> * Filter14 = [[GPUImageXYDerivativeFilter alloc] init];
-    NSString * title14 = @"蓝绿边缘";
-    NSDictionary * dic14 = [NSDictionary dictionaryWithObjectsAndKeys:Filter14,@"filter",title14,@"name", nil];
-    [arr addObject:dic14];
+//    GPUImageOutput<GPUImageInput> * Filter14 = [[GPUImageXYDerivativeFilter alloc] init];
+//    NSString * title14 = @"蓝绿边缘";
+//    NSDictionary * dic14 = [NSDictionary dictionaryWithObjectsAndKeys:Filter14,@"filter",title14,@"name", nil];
+//    [arr addObject:dic14];
     
     
     GPUImageOutput<GPUImageInput> * Filter15 = [[GPUImageSketchFilter alloc] init];
@@ -364,7 +453,10 @@
     [arr addObject:dic17];
     
     GPUImageOutput<GPUImageInput> * Filter18 = [[GPUImageMosaicFilter alloc] init];
-    NSString * title18 = @"黑白马赛克";
+    [(GPUImageMosaicFilter *)Filter18 setDisplayTileSize:CGSizeMake(0.03, 0.03)];
+    [(GPUImageMosaicFilter *)Filter18 setTileSet:@"squares.png"];
+    [(GPUImageMosaicFilter *)Filter18 setColorOn:NO];
+    NSString * title18 = @"马赛克";
     NSDictionary * dic18 = [NSDictionary dictionaryWithObjectsAndKeys:Filter18,@"filter",title18,@"name", nil];
     [arr addObject:dic18];
     
@@ -374,6 +466,7 @@
     [arr addObject:dic19];
     
     GPUImageOutput<GPUImageInput> * Filter20 = [[GPUImageGlassSphereFilter alloc] init];
+    [(GPUImageGlassSphereFilter *)Filter20 setRadius:0.28];//需根据视频比例定
     NSString * title20 = @"水晶球";
     NSDictionary * dic20 = [NSDictionary dictionaryWithObjectsAndKeys:Filter20,@"filter",title20,@"name", nil];
     [arr addObject:dic20];
@@ -394,9 +487,7 @@
 
 #pragma 监听AVPlayer播放完成通知
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
-    
-    NSLog(@"ok....");
-    
+
     [_gpuMovie cancelProcessing];
     
     [_gpuMovie startProcessing];
@@ -410,24 +501,59 @@
 - (void)effectImgClickFilter:(FilterModel *)model{
     
     [_gpuMovie removeAllTargets];
+    [_gaussianBlur removeAllTargets];
+    [_pixellateFilter removeAllTargets];
+    
     
     if (model.disFilter == nil) {
         
         _pixellateFilter = nil;
+        
         [_gpuMovie addTarget:_gpuView];
         
     }else{
     
         _pixellateFilter = model.disFilter;
     
-        [_gpuMovie addTarget:_pixellateFilter];
-        
-        if (_gpuView != nil) {
-            [_gpuView removeFromSuperview];
-        }
-        _gpuView = [[GPUImageView alloc]initWithFrame:CGRectMake(0, 72, kScreenWidth,kScreenWidth)];
-        [_pixellateFilter addTarget:_gpuView];
-        [self.view addSubview:_gpuView];
+        [self addFiler];
+    }
+    
+    if ([_pixellateFilter isKindOfClass:[GPUImageGlassSphereFilter class]]) {
+        [(GPUImageGlassSphereFilter *)_pixellateFilter setRadius: [self GPUImageGlassSphereFilterRate]];
+    }
+    
+    if (self.player.rate == 0) {
+        [_gpuMovie processMovieFrame:_gpuMovie.pixelBuffer withSampleTime:_gpuMovie.outputItemTime];
     }
 }
+
+- (void)addFiler{
+    [_gpuMovie addTarget:_pixellateFilter];
+    
+    _gaussianBlur = [[GPUImageGaussianBlurFilter alloc] init];
+    [_gpuMovie addTarget:_gaussianBlur];
+    _gaussianBlur.blurRadiusInPixels = 5.0;
+    
+    _blendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+    _blendFilter.mix = 1.0;
+    
+    [_gaussianBlur addTarget:_blendFilter];
+    [_pixellateFilter addTarget:_blendFilter];
+    
+    [_blendFilter addTarget:_gpuView];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [_player pause];
+    [_gpuSaveMovie cancelProcessing];
+    [_gpuMovie cancelProcessing];
+    [timer invalidate];
+    timer = nil;
+    [_gpuMovie removeAllTargets];
+    [_gpuSaveMovie removeAllTargets];
+    [_gaussianBlur removeAllTargets];
+    [_pixellateFilter removeAllTargets];
+    [_movieWriter cancelRecording];
+}
+
+
 @end

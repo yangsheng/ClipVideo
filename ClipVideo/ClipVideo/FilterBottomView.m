@@ -185,6 +185,11 @@ static NSString *const cellId = @"filterCollectionViewCell";
 }
 
 - (void)addFilter:(FilterModel *)filterModel{
+    
+    if (filterModel.isSelected) {
+        _selectedModel = filterModel;
+    }
+    
     [self.dataSource addObject:filterModel];
     [self.collectionView reloadData];
 }

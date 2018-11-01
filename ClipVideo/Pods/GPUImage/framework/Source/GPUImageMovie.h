@@ -18,6 +18,10 @@
 @property (readwrite, retain) AVPlayerItem *playerItem;
 @property(readwrite, retain) NSURL *url;
 
+@property(nonatomic, readwrite) CMTime outputItemTime;
+
+@property(nonatomic, readwrite) CVPixelBufferRef pixelBuffer;
+
 /** This enables the benchmarking mode, which logs out instantaneous and average frame times to the console
  */
 @property(readwrite, nonatomic) BOOL runBenchmark;
@@ -57,5 +61,5 @@
 - (void)endProcessing;
 - (void)cancelProcessing;
 - (void)processMovieFrame:(CMSampleBufferRef)movieSampleBuffer; 
-
+- (void)processMovieFrame:(CVPixelBufferRef)movieFrame withSampleTime:(CMTime)currentSampleTime;
 @end

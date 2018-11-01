@@ -1091,7 +1091,7 @@
                 [imageUrls addObject:[NSURL fileURLWithPath:fullPathToFile]];
                 [allUrl addObject:[NSURL fileURLWithPath:fullPathToFile]];
             }else {
-                NSString *fileName = [[self uploadFileName] stringByAppendingString:@".mp4"];
+                NSString *fileName = [[self uploadFileName] stringByAppendingString:@".mov"];
                 NSString *fullPathToFile = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
                 photoModel.fullPathToFile = fullPathToFile;
                 [videoUrls addObject:[NSURL fileURLWithPath:fullPathToFile]];

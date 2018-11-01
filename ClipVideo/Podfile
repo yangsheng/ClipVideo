@@ -2,7 +2,7 @@
 
 target "ClipVideo" do
 
-    pod 'GPUImage'
+    pod 'GPUImage', '~> 0.1.7' #修改了源码
     pod 'Masonry'
     pod 'BlocksKit', '~> 2.2.5'
     pod 'Google-Mobile-Ads-SDK'

@@ -334,11 +334,15 @@
 	CFTimeInterval nextVSync = ([sender timestamp] + [sender duration]);
 
 	CMTime outputItemTime = [playerItemOutput itemTimeForHostTime:nextVSync];
-
+    self.outputItemTime = outputItemTime;
 	if ([playerItemOutput hasNewPixelBufferForItemTime:outputItemTime]) {
         __unsafe_unretained GPUImageMovie *weakSelf = self;
 		CVPixelBufferRef pixelBuffer = [playerItemOutput copyPixelBufferForItemTime:outputItemTime itemTimeForDisplay:NULL];
         if( pixelBuffer )
+            if (weakSelf.pixelBuffer) {
+                CFRelease(weakSelf.pixelBuffer);//释放，避免内存占用过高
+            }
+            weakSelf.pixelBuffer = CVBufferRetain(pixelBuffer);
             runSynchronouslyOnVideoProcessingQueue(^{
                 [weakSelf processMovieFrame:pixelBuffer withSampleTime:outputItemTime];
                 CFRelease(pixelBuffer);

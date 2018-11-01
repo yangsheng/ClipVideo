@@ -39,7 +39,11 @@
     _selectedBtn.selected = YES;
     [_selectedBtn setBackgroundColor:RGBACOLOR(252, 85, 31, 1.0)];
 }
-
+- (void)playWithUrl:(NSURL *)url{
+    [super playWithUrl:url];
+    self.definitionView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
+    [self.view addSubview:self.definitionView];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -56,7 +60,6 @@
     tap.numberOfTapsRequired = 1;
     
     [self.definitionView addGestureRecognizer:tap];
-    
     
     _presetName = AVAssetExportPresetHighestQuality;
     

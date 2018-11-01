@@ -112,17 +112,15 @@
     
     self.title = @"剪影";
 
-
+    GADAdSize size = GADAdSizeFromCGSize(CGSizeMake(kScreenWidth, 50));
+    self.bannerView = [[GADBannerView alloc]
+                       initWithAdSize:size];
+    self.bannerView.delegate = self;
+    [self addBannerViewToView:self.bannerView];
     
-//    GADAdSize size = GADAdSizeFromCGSize(CGSizeMake(kScreenWidth, 50));
-//    self.bannerView = [[GADBannerView alloc]
-//                       initWithAdSize:size];
-//    self.bannerView.delegate = self;
-//    [self addBannerViewToView:self.bannerView];
-//    
-//    self.bannerView.adUnitID = @"ca-app-pub-4593956126356094/5783636614";
-//    self.bannerView.rootViewController = self;
-//    [self.bannerView loadRequest:[GADRequest request]];
+    self.bannerView.adUnitID = @"ca-app-pub-4593956126356094/5783636614";
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
     
 }
 - (void)addBannerViewToView:(UIView *)bannerView {

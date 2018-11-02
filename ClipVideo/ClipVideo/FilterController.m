@@ -11,7 +11,10 @@
 #import "FilterModel.h"
 #import "GPUImage.h"
 #import "HXDownloadProgressView.h"
-@interface FilterController ()<GPUImageMovieDelegate,FilterBottomViewDelegate>
+
+#import "FilterColoringView.h"
+
+@interface FilterController ()<GPUImageMovieDelegate,FilterBottomViewDelegate,FilterColoringViewDelegate>
 {
     NSTimer * timer;
 }
@@ -48,10 +51,33 @@
 
 @property(nonatomic, strong) GPUImageAlphaBlendFilter *blendFilter;
 
+//调色：亮度GPUImageBrightnessFilter 饱和度GPUImageSaturationFilter 对比度GPUImageContrastFilter 色度GPUImageHueFilter
+//曝光GPUImageExposureFilter 灰度GPUImageGrayscaleFilter GPUImageFilterGroup
+
+//调色
+@property(nonatomic, strong) GPUImageBrightnessFilter * brightnessFilter;//亮度
+@property(nonatomic, strong)  GPUImageSaturationFilter  *  saturationFilter ;//饱和度
+@property(nonatomic, strong) GPUImageContrastFilter * contrastFilter;//对比度
+@property(nonatomic, strong) GPUImageHueFilter * hueFilter;//色度
+@property(nonatomic, strong) GPUImageExposureFilter * exposureFilter;//曝光
+@property(nonatomic, strong) GPUImageGrayscaleFilter * grayscaleFilter;//灰度
+@property(nonatomic, strong) GPUImageFilterGroup * filterGroup;//组合
+
+@property(nonatomic, strong) FilterColoringView * filerColorView;
+
 @end
 
 @implementation FilterController
-
+- (FilterColoringView *)filerColorView{
+    if (_filerColorView == nil) {
+        
+        _filerColorView = [[FilterColoringView alloc]initWithFrame:CGRectMake(0, kScreenHeight - 150, kScreenWidth, 150)];
+        _filerColorView.delegate  =self;
+        [self.view addSubview:_filerColorView];
+        
+    }
+    return _filerColorView;
+}
 - (HXDownloadProgressView *)downloadView{
     if (_downloadView == nil) {
         _downloadView = [[HXDownloadProgressView alloc]initWithFrame:self.view.bounds];
@@ -84,10 +110,20 @@
 
 -(void)createUI{
     
+    
+   
+    
+    
     self.bottomView  = [[FilterBottomView alloc]initWithFrame:CGRectMake(0, kScreenHeight - 150, kScreenWidth, 150)];
     self.bottomView.delegate = self;
     [self.view addSubview:self.bottomView];
+
+     self.filerColorView.frame  = CGRectMake(0, kScreenHeight - 150, kScreenWidth, 150);
+    
     [self createEditView];
+    
+    
+   
     
     self.pauseBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 72 +kScreenWidth, 45, 45)];
     [self.view addSubview:self.pauseBtn];
@@ -124,6 +160,7 @@
     [self.view addSubview:_gpuView];
     
     [_pixellateFilter addTarget:_gpuView];
+
 }
 
 - (void)setupMovie{
@@ -147,12 +184,87 @@
     
     _gpuMovie.delegate  = self;
 
-    [_gpuMovie addTarget:_gpuView];//开始进入是原画面
     
+    
+    _brightnessFilter = [[GPUImageBrightnessFilter alloc]init];
+    _saturationFilter = [[GPUImageSaturationFilter alloc]init];
+    _hueFilter = [[GPUImageHueFilter alloc]init];
+    _exposureFilter = [[GPUImageExposureFilter alloc]init];
+    _contrastFilter = [[GPUImageContrastFilter alloc]init];
+    _grayscaleFilter = [[GPUImageGrayscaleFilter alloc]init];
+    
+    _filterGroup = [[GPUImageFilterGroup alloc]init];
+    
+    
+    [_gpuMovie addTarget:_filterGroup];
+    
+
+    [self addGPUImageFilters:@[_brightnessFilter,_saturationFilter,_hueFilter,_exposureFilter,_contrastFilter,_grayscaleFilter]];
+
+    [_filterGroup addTarget:_gpuView];//开始进入是原画面
+
     //开始预览
     [_gpuMovie startProcessing];
 
 }
+- (void)addGPUImageFilters:(NSArray *)filters
+{
+    NSInteger count = filters.count;
+    
+    if (count == 0)
+    {
+        return;
+    }
+    if (count == 1)
+    {
+        _filterGroup.initialFilters = [NSArray arrayWithObject:filters[0]];
+        _filterGroup.terminalFilter = filters[0];
+        
+    } else
+    {
+        for (int i = 0; i < count; i++)
+        {
+            GPUImageOutput<GPUImageInput> *filter = filters[i];
+            
+            [_filterGroup addFilter:filter];
+            
+            if (i != 0)
+            {
+                [[_filterGroup filterAtIndex:i - 1] addTarget:[_filterGroup filterAtIndex:i]];
+            }
+        }
+
+        _filterGroup.initialFilters = @[filters[0]];
+        _filterGroup.terminalFilter = filters[filters.count - 1];
+    }
+    
+}
+
+- (void)addGPUImageFilter:(GPUImageOutput<GPUImageInput> *)filter
+{
+    [_filterGroup addFilter:filter];
+    
+    GPUImageOutput<GPUImageInput> *newTerminalFilter = filter;
+    
+    NSInteger count = _filterGroup.filterCount;
+    
+    if (count == 1)
+    {
+        _filterGroup.initialFilters = @[newTerminalFilter];
+        _filterGroup.terminalFilter = newTerminalFilter;
+        
+    } else
+    {
+        GPUImageOutput<GPUImageInput> *terminalFilter    = _filterGroup.terminalFilter;
+        NSArray *initialFilters                          = _filterGroup.initialFilters;
+        
+        [terminalFilter addTarget:newTerminalFilter];
+        
+        _filterGroup.initialFilters = @[initialFilters[0]];
+        _filterGroup.terminalFilter = newTerminalFilter;
+    }
+}
+
 
 - (void)playWithUrl:(NSURL *)url{
     
@@ -349,7 +461,10 @@
 /***
  原图、美颜、魔焰、幻影、卡通风格1、光芒、曾经、沉寂、日系、美白、回忆、乔治亚、奶油、怀旧、优雅、夕阳、粉嫩、梦想、春、冬、黑白照、希望、老照片、自然、流年、夜幕、沙滩、破晓、复古、HDR、晕影、英伦风、浮雕、素描
  
- 原图、优雅、红润、阳光、海蓝、炽黄、浓烈、闪耀、朝阳、经典、粉桃、雪梨、鲜果、麦茶、灰白、波普、光圈、海盐、黑白、胶片、焦黄、蓝调、迷糊、思念、素描、鱼眼、马赛克、模糊、
+ 原图、优雅、红润、阳光、海蓝、炽黄、浓烈、闪耀、朝阳、经典、粉桃、雪梨、鲜果、麦茶、灰白、波普、光圈、海盐、黑白、胶片、焦黄、蓝调、迷糊、思念、素描、鱼眼、马赛克、模糊
+ 
+ 调色：亮度GPUImageBrightnessFilter 饱和度GPUImageSaturationFilter 对比度GPUImageContrastFilter 色度GPUImageHueFilter
+      曝光GPUImageExposureFilter 灰度GPUImageGrayscaleFilter
  **/
 -(NSArray *)CreateGPUArr{
     NSMutableArray * arr = [[NSMutableArray alloc]init];
@@ -480,12 +595,10 @@
     return arr;
 }
 
-
 #pragma mark - GPUImageMovieDelegate
 - (void)didCompletePlayingMovie{
     
 }
-
 #pragma 监听AVPlayer播放完成通知
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
 
@@ -556,5 +669,27 @@
     [_movieWriter cancelRecording];
 }
 
+#pragma mark - FilterColoringViewDelegate
+- (void)filterColoringView:(NSInteger)tag andValue:(float)value{
+    if (tag == 100) {//
+        [_brightnessFilter setBrightness:value];
+        
+    }else if (tag == 101){
+        [_saturationFilter setSaturation:value];
+    }else if (tag == 102){
+//        [_hueFilter setBrightness:value];
+    }else if (tag == 103){
+        [_exposureFilter setExposure:value];
+    }else if (tag == 104){
+
+        [_contrastFilter setContrast:value];
+    }else if (tag == 105){
+//        [_grayscaleFilter setBrightness:value];
+    }
+#warning 会有闪烁bug
+    if (self.player.rate == 0) {
+        [_gpuMovie processMovieFrame:_gpuMovie.pixelBuffer withSampleTime:_gpuMovie.outputItemTime];
+    }
+}
 
 @end

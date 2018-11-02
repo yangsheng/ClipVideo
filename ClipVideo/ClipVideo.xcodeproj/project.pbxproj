@@ -107,6 +107,7 @@
 		7AD7523321886D00007B98C8 /* origin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD7523221886D00007B98C8 /* origin.png */; };
 		7AD7523D2189834F007B98C8 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7523C2189834F007B98C8 /* FilterBottomView.m */; };
 		7AD7524121898A91007B98C8 /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7524021898A91007B98C8 /* FilterModel.m */; };
+		7AD7527B218BF3DB007B98C8 /* FilterColoringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7527A218BF3DB007B98C8 /* FilterColoringView.m */; };
 		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
 		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
 		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
@@ -308,6 +309,9 @@
 		7AD7523C2189834F007B98C8 /* FilterBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterBottomView.m; sourceTree = "<group>"; };
 		7AD7523F21898A91007B98C8 /* FilterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterModel.h; sourceTree = "<group>"; };
 		7AD7524021898A91007B98C8 /* FilterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterModel.m; sourceTree = "<group>"; };
+		7AD75272218BE411007B98C8 /* ClipVideo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipVideo.entitlements; sourceTree = "<group>"; };
+		7AD75279218BF3DB007B98C8 /* FilterColoringView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterColoringView.h; sourceTree = "<group>"; };
+		7AD7527A218BF3DB007B98C8 /* FilterColoringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterColoringView.m; sourceTree = "<group>"; };
 		7AF6CC3721801F12000D90F2 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		7AF6CC3E2180472B000D90F2 /* PlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayController.h; sourceTree = "<group>"; };
 		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
@@ -451,6 +455,7 @@
 		7A674E0321742C3A00009DC3 /* ClipVideo */ = {
 			isa = PBXGroup;
 			children = (
+				7AD75272218BE411007B98C8 /* ClipVideo.entitlements */,
 				7AD7522F21886206007B98C8 /* sample_iPod.m4v */,
 				7AD7523221886D00007B98C8 /* origin.png */,
 				1877119E217B1A410086DE5C /* libs */,
@@ -478,6 +483,8 @@
 				7AD75229218855F0007B98C8 /* FilterController.m */,
 				7AD7523B2189834F007B98C8 /* FilterBottomView.h */,
 				7AD7523C2189834F007B98C8 /* FilterBottomView.m */,
+				7AD75279218BF3DB007B98C8 /* FilterColoringView.h */,
+				7AD7527A218BF3DB007B98C8 /* FilterColoringView.m */,
 				7AD7523F21898A91007B98C8 /* FilterModel.h */,
 				7AD7524021898A91007B98C8 /* FilterModel.m */,
 				7A5116A1217478D300846047 /* CompositionListViewController.h */,
@@ -707,6 +714,24 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Multipath = {
+								enabled = 0;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.Wallet = {
 								enabled = 0;
 							};
 						};
@@ -895,6 +920,7 @@
 				7AB3CAB5217F4351002216C2 /* HXPhotoCustomNavigationBar.m in Sources */,
 				7A5116A3217478D300846047 /* CompositionListViewController.m in Sources */,
 				7AB3CAF5217F4406002216C2 /* UIImage+WebP.m in Sources */,
+				7AD7527B218BF3DB007B98C8 /* FilterColoringView.m in Sources */,
 				7AB3CB07217F4406002216C2 /* UIButton+WebCache.m in Sources */,
 				7AB3CAB9217F4351002216C2 /* HXDatePhotoViewController.m in Sources */,
 				7AB3CAFC217F4406002216C2 /* UIImage+MultiFormat.m in Sources */,
@@ -1106,10 +1132,11 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"$(inherited)",
+					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lecloud.ClipVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_LetvCommon_20181029;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1146,12 +1173,13 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"$(inherited)",
+					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lecloud.ClipVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClipVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = House_LetvCommon_20180427B;
+				PROVISIONING_PROFILE_SPECIFIER = House_LetvCommon_20181029;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

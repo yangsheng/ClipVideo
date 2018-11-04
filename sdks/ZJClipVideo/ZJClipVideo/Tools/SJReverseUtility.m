@@ -129,18 +129,16 @@
         
         !weakSelf.callBack? :weakSelf.callBack(weakSelf.writer.status, (float)i/n, weakSelf.writer.error);
     }
-    [self.writer finishWritingWithCompletionHandler:^{
-        
-        
-        if (weakSelf.callBack) {
+    
+    [self.writer finishWritingWithCompletionHandler:^{//循环引用，要弱化
+
+        if (self.callBack) {
             
-             weakSelf.callBack(weakSelf.writer.status, 1.0f, weakSelf.writer.error);
+             self.callBack(self.writer.status, 1.0f, self.writer.error);
         }
        
     }];
-    
 }
-
 
 - (void)setupWriterWithPath:(NSString *)path
 {
@@ -149,7 +147,7 @@
     
     // Initialize the writer
     self.writer = [[AVAssetWriter alloc] initWithURL:outputURL
-                                            fileType:AVFileTypeMPEG4
+                                            fileType:AVFileTypeQuickTimeMovie
                                                error:nil];
     NSDictionary *videoCompressionProps = [NSDictionary dictionaryWithObjectsAndKeys:
                                            @(videoTrack.estimatedDataRate), AVVideoAverageBitRateKey,

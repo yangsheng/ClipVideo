@@ -237,22 +237,15 @@
 
     }];
 }
-
+#pragma mark - 视频倒放
 - (void)videoReplayWithUrl:(NSURL *)url{
-    
-    self.progressLayer = [GLProgressLayer showProgress];
-    
-   
-       
-        [self.progressLayer hiddenProgress];
-      
+
         PlayController *vc = [[PlayController alloc] init];
       
         [self.navigationController pushViewController:vc animated:YES];
      
         [vc playWithUrl:url];
 
-   
 }
 
 - (void)videoEditingAndSynthesisWithUrlArray:(NSArray *)urlArr{

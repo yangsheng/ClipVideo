@@ -66,7 +66,6 @@
 
     [self getCoverImgs];
     
- 
     self.pauseBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 200, 45, 45)];
     [self.view addSubview:_pauseBtn];
     [_pauseBtn setImage:[UIImage imageNamed:@"暂停"] forState:UIControlStateNormal];
@@ -90,7 +89,6 @@
     } forControlEvents:UIControlEventTouchUpInside];
     
     self.pauseBtn.hidden = YES;
-
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,8 +129,6 @@
                 
             case AVPlayerItemStatusUnknown:
                 
-                
-                
                 break;
                 // 这个就是不能播放喽，加载失败了
             case AVPlayerItemStatusFailed:
@@ -148,11 +144,9 @@
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
 
-    
     [self.avPlayer seekToTime:CMTimeMakeWithSeconds(self.startTime, 600)];
     
     [self.avPlayer play];
-    
 }
 #pragma mark -- 调用plaer的对象进行UI更新
 - (void)initTimer

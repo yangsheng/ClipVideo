@@ -242,7 +242,7 @@
     
     self.progressLayer = [GLProgressLayer showProgress];
     
-    [VideoAudioComposition assetByReversingAsset:url complition:^(NSURL *outputPath) {
+   
        
         [self.progressLayer hiddenProgress];
       
@@ -250,9 +250,9 @@
       
         [self.navigationController pushViewController:vc animated:YES];
      
-        [vc playWithUrl:outputPath];
+        [vc playWithUrl:url];
 
-    }];
+   
 }
 
 - (void)videoEditingAndSynthesisWithUrlArray:(NSArray *)urlArr{

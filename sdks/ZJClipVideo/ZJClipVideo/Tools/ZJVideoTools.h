@@ -26,6 +26,8 @@
 
 + (UIImage*)getVideoPreViewImageFromVideo:(AVAsset *)videoAsset atTime:(float)atTime;
 
++ (NSInteger)durationWithVideo:(NSString *)videoPath;
+
 @end
 
 

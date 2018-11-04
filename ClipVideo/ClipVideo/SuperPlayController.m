@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIImage *cover;
 @property (nonatomic, strong) UIImageView *coverImgView;        //封面imgview
 
-@property(nonatomic, strong) AVPlayerItem * currentPlayerItem;
+
 
 @property(nonatomic, strong) UIButton * playBtn;
 
@@ -115,11 +115,15 @@
 }
 
 - (void)playWithUrl:(NSURL *)url{
+    _fileUrl = url;
+    
+    
     // 传入地址
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
-
+    self.currentPlayerItem = playerItem;
     // 播放器
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+    self.avPlayer = player;
     // 播放器layer
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
     playerLayer.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 300);

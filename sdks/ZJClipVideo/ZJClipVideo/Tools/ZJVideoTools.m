@@ -184,5 +184,12 @@
     
     return scaledImage;
 }
-
+///获取本地视频的时长
++ (NSInteger)durationWithVideo:(NSString *)videoPath {
+    NSDictionary *opts = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+    AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:videoPath] options:opts];     //初始化视频媒体文件
+    NSUInteger second = 0;
+    second = ceilf((double)urlAsset.duration.value / (double)urlAsset.duration.timescale); // 获取视频总时长,单位秒
+    return second;
+}
 @end

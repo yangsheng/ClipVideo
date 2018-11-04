@@ -108,6 +108,9 @@
 		7AD7523D2189834F007B98C8 /* FilterBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7523C2189834F007B98C8 /* FilterBottomView.m */; };
 		7AD7524121898A91007B98C8 /* FilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7524021898A91007B98C8 /* FilterModel.m */; };
 		7AD7527B218BF3DB007B98C8 /* FilterColoringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7527A218BF3DB007B98C8 /* FilterColoringView.m */; };
+		7AD752B7218E8CD8007B98C8 /* ZJInterceptBottomTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD752B4218E8CD7007B98C8 /* ZJInterceptBottomTools.m */; };
+		7AD752BA218E9125007B98C8 /* ReplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD752B9218E9125007B98C8 /* ReplayController.m */; };
+		7AD752C3218ED267007B98C8 /* ZJAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD752C2218ED266007B98C8 /* ZJAlertView.m */; };
 		7AF6CC3821801F12000D90F2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3721801F12000D90F2 /* ViewController.xib */; };
 		7AF6CC402180472B000D90F2 /* PlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC3F2180472B000D90F2 /* PlayController.m */; };
 		7AF6CC5721805FBF000D90F2 /* PlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6CC5621805FBF000D90F2 /* PlayController.xib */; };
@@ -312,6 +315,12 @@
 		7AD75272218BE411007B98C8 /* ClipVideo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipVideo.entitlements; sourceTree = "<group>"; };
 		7AD75279218BF3DB007B98C8 /* FilterColoringView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterColoringView.h; sourceTree = "<group>"; };
 		7AD7527A218BF3DB007B98C8 /* FilterColoringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterColoringView.m; sourceTree = "<group>"; };
+		7AD752B4218E8CD7007B98C8 /* ZJInterceptBottomTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJInterceptBottomTools.m; sourceTree = "<group>"; };
+		7AD752B6218E8CD7007B98C8 /* ZJInterceptBottomTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJInterceptBottomTools.h; sourceTree = "<group>"; };
+		7AD752B8218E9125007B98C8 /* ReplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplayController.h; sourceTree = "<group>"; };
+		7AD752B9218E9125007B98C8 /* ReplayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplayController.m; sourceTree = "<group>"; };
+		7AD752C1218ED266007B98C8 /* ZJAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJAlertView.h; sourceTree = "<group>"; };
+		7AD752C2218ED266007B98C8 /* ZJAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJAlertView.m; sourceTree = "<group>"; };
 		7AF6CC3721801F12000D90F2 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		7AF6CC3E2180472B000D90F2 /* PlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayController.h; sourceTree = "<group>"; };
 		7AF6CC3F2180472B000D90F2 /* PlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayController.m; sourceTree = "<group>"; };
@@ -462,6 +471,8 @@
 				7A51166B2174787C00846047 /* resource */,
 				7A674E0421742C3A00009DC3 /* AppDelegate.h */,
 				7A674E0521742C3A00009DC3 /* AppDelegate.m */,
+				7AD752C1218ED266007B98C8 /* ZJAlertView.h */,
+				7AD752C2218ED266007B98C8 /* ZJAlertView.m */,
 				7A27A2B2218193EF00F90564 /* Views */,
 				7A674E0721742C3A00009DC3 /* ViewController.h */,
 				7A674E0821742C3A00009DC3 /* ViewController.m */,
@@ -471,6 +482,10 @@
 				7AF6CC3E2180472B000D90F2 /* PlayController.h */,
 				7AF6CC3F2180472B000D90F2 /* PlayController.m */,
 				7AF6CC5621805FBF000D90F2 /* PlayController.xib */,
+				7AD752B8218E9125007B98C8 /* ReplayController.h */,
+				7AD752B9218E9125007B98C8 /* ReplayController.m */,
+				7AD752B6218E8CD7007B98C8 /* ZJInterceptBottomTools.h */,
+				7AD752B4218E8CD7007B98C8 /* ZJInterceptBottomTools.m */,
 				7A27A2AD218173D500F90564 /* BeautificationController.h */,
 				7A27A2AE218173D500F90564 /* BeautificationController.m */,
 				7A27A2AF218173D500F90564 /* BeautificationController.xib */,
@@ -889,7 +904,9 @@
 				7A27A2B52181940F00F90564 /* ExitEditorView.m in Sources */,
 				7AB3CAAB217F4351002216C2 /* HXPhoto3DTouchViewController.m in Sources */,
 				7AB3CAFD217F4406002216C2 /* SDWebImageCompat.m in Sources */,
+				7AD752B7218E8CD8007B98C8 /* ZJInterceptBottomTools.m in Sources */,
 				7AB3CAC1217F4351002216C2 /* HXFullScreenCameraPlayView.m in Sources */,
+				7AD752C3218ED267007B98C8 /* ZJAlertView.m in Sources */,
 				7AB3CAF8217F4406002216C2 /* SDWebImageDecoder.m in Sources */,
 				7AB3CACA217F4351002216C2 /* HXDateVideoEditViewController.m in Sources */,
 				7AB3CAB3217F4351002216C2 /* HXAlbumListViewController.m in Sources */,
@@ -924,6 +941,7 @@
 				7AB3CB07217F4406002216C2 /* UIButton+WebCache.m in Sources */,
 				7AB3CAB9217F4351002216C2 /* HXDatePhotoViewController.m in Sources */,
 				7AB3CAFC217F4406002216C2 /* UIImage+MultiFormat.m in Sources */,
+				7AD752BA218E9125007B98C8 /* ReplayController.m in Sources */,
 				7AF6CC402180472B000D90F2 /* PlayController.m in Sources */,
 				7A674E1421742C3B00009DC3 /* main.m in Sources */,
 				7AB3CAAA217F4351002216C2 /* HXDownloadProgressView.m in Sources */,

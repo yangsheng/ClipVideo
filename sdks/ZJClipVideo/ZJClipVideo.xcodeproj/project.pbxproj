@@ -26,6 +26,7 @@
 		7A5116AA21747AC900846047 /* VideoAudioComposition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A51165F217477F800846047 /* VideoAudioComposition.h */; };
 		7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A674E4221742D3300009DC3 /* ZJClipVideo.m */; };
 		7AD7523A21897AA1007B98C8 /* ZJVideoFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7523921897AA1007B98C8 /* ZJVideoFilter.m */; };
+		7AD752C6218EE97F007B98C8 /* SJReverseUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD752C4218EE97F007B98C8 /* SJReverseUtility.m */; };
 		7AF6CC4821804CC5000D90F2 /* ZJSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */; };
 		7AF6CC4921804CC5000D90F2 /* NSURL+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */; };
 		7AF6CC4A21804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6CC4721804CC5000D90F2 /* UIImage+ZJSaveToCameraRoll.m */; };
@@ -82,6 +83,8 @@
 		7A674E4221742D3300009DC3 /* ZJClipVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJClipVideo.m; sourceTree = "<group>"; };
 		7AD7523821897AA1007B98C8 /* ZJVideoFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJVideoFilter.h; sourceTree = "<group>"; };
 		7AD7523921897AA1007B98C8 /* ZJVideoFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJVideoFilter.m; sourceTree = "<group>"; };
+		7AD752C4218EE97F007B98C8 /* SJReverseUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJReverseUtility.m; sourceTree = "<group>"; };
+		7AD752C5218EE97F007B98C8 /* SJReverseUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJReverseUtility.h; sourceTree = "<group>"; };
 		7AF6CC4221804CC4000D90F2 /* ZJSaveToCameraRollOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSaveToCameraRollOperation.m; sourceTree = "<group>"; };
 		7AF6CC4321804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ZJSaveToCameraRoll.m"; sourceTree = "<group>"; };
 		7AF6CC4421804CC4000D90F2 /* NSURL+ZJSaveToCameraRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ZJSaveToCameraRoll.h"; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				7A27A2C32181B33200F90564 /* UIImage+Crop.m */,
 				7A27A2C22181B33200F90564 /* ZJVideoTools.h */,
 				7A27A2C62181B33200F90564 /* ZJVideoTools.m */,
+				7AD752C5218EE97F007B98C8 /* SJReverseUtility.h */,
+				7AD752C4218EE97F007B98C8 /* SJReverseUtility.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A511666217477F800846047 /* VideoAudioEdit.m in Sources */,
+				7AD752C6218EE97F007B98C8 /* SJReverseUtility.m in Sources */,
 				7A511668217477F800846047 /* VideoAudioComposition.m in Sources */,
 				7A674E4321742D3300009DC3 /* ZJClipVideo.m in Sources */,
 				7A511667217477F800846047 /* GLFolderManager.m in Sources */,

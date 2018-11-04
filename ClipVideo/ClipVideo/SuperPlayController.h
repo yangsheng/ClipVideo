@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) ExitEditorView * backView;
 @property(nonatomic, strong) NSArray * urlArray;
+@property(nonatomic, strong) AVPlayerItem * currentPlayerItem;
+@property(nonatomic, strong) NSURL * fileUrl;
+@property(nonatomic, strong) AVPlayer *avPlayer;
 
 /**
  当前观看时间

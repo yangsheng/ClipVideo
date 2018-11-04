@@ -17,7 +17,7 @@
 #import "NSGIF.h"
 #import "UIImage+Crop.h"
 #import "ZJVideoTools.h"
-
+#import "SJReverseUtility.h"
 @interface ZJClipVideo : NSObject
 
 

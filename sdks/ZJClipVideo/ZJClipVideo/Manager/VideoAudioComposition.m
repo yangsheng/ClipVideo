@@ -9,7 +9,7 @@
 #import "VideoAudioComposition.h"
 #import "GLFolderManager.h"
 #import <UIKit/UIKit.h>
-
+#import "SJReverseUtility.h"
 static NSString *const kCompositionPath = @"GLComposition";
 
 @interface VideoAudioComposition()
@@ -444,72 +444,115 @@ static NSString *const kCompositionPath = @"GLComposition";
 //    return audioMix;
 //}
 
-+ (void)assetByReversingAsset:(NSURL *)assetUrl complition:(void (^)(NSURL *outputPath)) completionHandle{
-    NSError *error;
++ (void)assetByReversingAsset:(NSURL *)assetUrl starTime:(CGFloat)startTime andEndTime:(CGFloat)endTime complition:(void (^)(NSURL *outputPath)) completionHandle{
+   // NSError *error;
     AVAsset *asset = [AVAsset assetWithURL:assetUrl];
-    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:&error];
-    AVAssetTrack *videoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] lastObject];
-    NSDictionary *readerOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange], kCVPixelBufferPixelFormatTypeKey, nil];
-    AVAssetReaderTrackOutput* readerOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack
-                                                                                        outputSettings:readerOutputSettings];
-    [reader addOutput:readerOutput];
-    [reader startReading];
+//     AVAssetTrack *videoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] lastObject];
+//
+
+//
+//    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:&error];
+//    NSDictionary *readerOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange], kCVPixelBufferPixelFormatTypeKey, nil];
+//    AVAssetReaderTrackOutput* readerOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack
+//                                                                                        outputSettings:readerOutputSettings];
+//    [reader addOutput:readerOutput];
+//    [reader startReading];
+//
+//    NSMutableArray *samples = [[NSMutableArray alloc] init];
+//
+//    CMSampleBufferRef sample;
+//    while((sample = [readerOutput copyNextSampleBuffer])) {
+//        [samples addObject:(__bridge id)sample];
+//        CFRelease(sample);
+//    }
     
-    NSMutableArray *samples = [[NSMutableArray alloc] init];
-    
-    CMSampleBufferRef sample;
-    while((sample = [readerOutput copyNextSampleBuffer])) {
-        [samples addObject:(__bridge id)sample];
-        CFRelease(sample);
-    }
     NSURL *outputURL = [self exporterPath];
-    AVAssetWriter *writer = [[AVAssetWriter alloc] initWithURL:outputURL
-                                                      fileType:AVFileTypeMPEG4
-                                                         error:&error];
-    NSDictionary *videoCompressionProps = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           @(videoTrack.estimatedDataRate), AVVideoAverageBitRateKey,
-                                           nil];
-    NSDictionary *writerOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          AVVideoCodecTypeH264, AVVideoCodecKey,
-                                          [NSNumber numberWithInt:videoTrack.naturalSize.width], AVVideoWidthKey,
-                                          [NSNumber numberWithInt:videoTrack.naturalSize.height], AVVideoHeightKey,
-                                          videoCompressionProps, AVVideoCompressionPropertiesKey,
-                                          nil];
-    AVAssetWriterInput *writerInput = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo
-                                                                     outputSettings:writerOutputSettings
-                                                                   sourceFormatHint:(__bridge CMFormatDescriptionRef)[videoTrack.formatDescriptions lastObject]];
-    [writerInput setExpectsMediaDataInRealTime:NO];
+
+    SJReverseUtility * reverseUtility =  [[SJReverseUtility  alloc]initWithAsset:asset outputPath:outputURL.path];
     
-    //防止视频宽大于手机最大分辨率导致的视频方向问题提
-    writerInput.transform = videoTrack.preferredTransform;
-    
-    AVAssetWriterInputPixelBufferAdaptor *pixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:writerInput sourcePixelBufferAttributes:nil];
-    
-    [writer addInput:writerInput];
-    
-    [writer startWriting];
-    [writer startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp((__bridge CMSampleBufferRef)samples[0])];
-    for(NSInteger i = 0; i < samples.count; i++) {
-        CMTime presentationTime = CMSampleBufferGetPresentationTimeStamp((__bridge CMSampleBufferRef)samples[i]);
-        CVPixelBufferRef imageBufferRef = CMSampleBufferGetImageBuffer((__bridge CMSampleBufferRef)samples[samples.count - i - 1]);
+    reverseUtility.callBack = ^(AVAssetWriterStatus status, float progress, NSError *error) {
         
-        while (!writerInput.readyForMoreMediaData) {
-            [NSThread sleepForTimeInterval:0.1];
+        NSLog(@"status %ld",(long)status);
+        
+        if (progress == 1) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+               completionHandle(outputURL);
+//
+//            });
         }
-        
-        [pixelBufferAdaptor appendPixelBuffer:imageBufferRef withPresentationTime:presentationTime];
-        
-    }
+        NSLog(@"process:%f",progress);
+        NSLog(@"--%@",outputURL);
+    };
     
-    [writer finishWritingWithCompletionHandler:^{
-        
-        
-        NSLog(@"完成倒放生成视频:%@",outputURL);
-        
-        return completionHandle(outputURL);
-        
-    }];
+    reverseUtility.timeRange = CMTimeRangeMake(CMTimeMakeWithSeconds(startTime, 30), CMTimeMakeWithSeconds(endTime - startTime, 30));
+    [reverseUtility startProcessing];
+
     
+    
+//    return;
+//
+//    AVAssetWriter *writer = [[AVAssetWriter alloc] initWithURL:outputURL
+//                                                      fileType:AVFileTypeQuickTimeMovie
+//                                                         error:&error];
+//    NSDictionary *videoCompressionProps = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                           @(videoTrack.estimatedDataRate), AVVideoAverageBitRateKey,
+//                                           nil];
+//    NSDictionary *writerOutputSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                          AVVideoCodecTypeH264, AVVideoCodecKey,
+//                                          [NSNumber numberWithInt:videoTrack.naturalSize.width], AVVideoWidthKey,
+//                                          [NSNumber numberWithInt:videoTrack.naturalSize.height], AVVideoHeightKey,
+//                                          videoCompressionProps, AVVideoCompressionPropertiesKey,
+//                                          nil];
+//    AVAssetWriterInput *writerInput = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo
+//                                                                     outputSettings:writerOutputSettings
+//                                                                   sourceFormatHint:(__bridge CMFormatDescriptionRef)[videoTrack.formatDescriptions lastObject]];
+//    [writerInput setExpectsMediaDataInRealTime:YES];
+//
+//
+//
+//    //防止视频宽大于手机最大分辨率导致的视频方向问题提
+//    writerInput.transform = videoTrack.preferredTransform;
+//
+//    AVAssetWriterInputPixelBufferAdaptor *pixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:writerInput sourcePixelBufferAttributes:nil];
+//
+//    [writer addInput:writerInput];
+//
+//
+//
+//
+//    [writer startWriting];
+//
+////    [writer startSessionAtSourceTime:CMTimeMakeWithSeconds(startTime, 25)];
+////    [writer endSessionAtSourceTime:CMTimeMakeWithSeconds(endTime, 25)];
+//
+//    [writer startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp((__bridge CMSampleBufferRef)samples[0])];
+//
+//    for(NSInteger i = 0; i < samples.count; i++) {
+//        CMTime presentationTime = CMSampleBufferGetPresentationTimeStamp((__bridge CMSampleBufferRef)samples[i]);
+//        CVPixelBufferRef imageBufferRef = CMSampleBufferGetImageBuffer((__bridge CMSampleBufferRef)samples[samples.count - i - 1]);
+//
+//        while (!writerInput.readyForMoreMediaData) {
+//            [NSThread sleepForTimeInterval:0.1];
+//        }
+//
+//        [pixelBufferAdaptor appendPixelBuffer:imageBufferRef withPresentationTime:presentationTime];
+//
+//    }
+//
+//
+//
+//    [writer finishWritingWithCompletionHandler:^{
+//
+//
+//        NSLog(@"完成倒放生成视频:%@",outputURL);
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            return completionHandle(outputURL);
+//        });
+//
+//    }];
+//
     
 }
 
@@ -517,7 +560,7 @@ static NSString *const kCompositionPath = @"GLComposition";
 + (NSURL *)exporterPath {
     
     NSInteger nowInter = (long)[[NSDate date] timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"output%ld.mp4",(long)nowInter];
+    NSString *fileName = [NSString stringWithFormat:@"output%ld.mov",(long)nowInter];
     
     NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     

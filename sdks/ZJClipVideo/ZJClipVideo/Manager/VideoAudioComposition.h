@@ -90,7 +90,7 @@
  @param assetUrl 视频地址
  @param completionHandle 成功回调
  */
-+ (void)assetByReversingAsset:(NSURL *)assetUrl complition:(void (^)(NSURL *outputPath)) completionHandle;
++ (void)assetByReversingAsset:(NSURL *)assetUrl starTime:(CGFloat)startTime andEndTime:(CGFloat)endTime complition:(void (^)(NSURL *outputPath)) completionHandle;
 
 /**
  视频倍速输出
